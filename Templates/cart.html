@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<link rel = "stylesheet" href = "static/css/cart.css">
+<script>
+    var items = {{ items|tojson }}
+</script>
+
+{% endblock %}
+
+{% block body1 %}
+
+        {% if loggedinuser %}
+<div class = "checkifloggeduser">
+    <div class = "checkifloggeduser1">
+            {% if is_admin %}
+                <span class = "logged_in_name_admin">
+            {{ loggedinuser }}
+            </span>
+            {% else %}
+                <span class = "logged_in_name">
+             {{ loggedinuser }}
+                </span>
+            {% endif %}
+            <a href = "/logout">Logout</a>
+    </div>
+</div>
+        {% endif %}
+
+{% endblock %}
+
+{% block body %}
+
+1
+<div class = "cart_1">
+    <form action = "/cart" method = "POST" class = "cart_Form" onsubmit = "validateCart()" >
+<div class = "cart1">
+
+</div>
+    <div class = "cart_total">
+        TOTAL: R$
+    </div>
+    {% if loggedinuser %}
+    <button class = "cartbutton" name = "submit" value = "b">BUY ALL!</button>
+    {% else %}
+        <div class = "cartlogin">You must be logged in to purchase</div>
+    {% endif %}
+</form>
+</div>
+<script src = "static/js/cart.js"></script>
+
+{% endblock %}

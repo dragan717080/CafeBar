@@ -1,0 +1,9 @@
+.profile1 {
+    text-align: center;
+}
+
+.footermenu {
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+}

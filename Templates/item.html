@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<link rel = "stylesheet" href = "static/css/item.css">
+<script>
+    var items = {{ items|tojson }}
+    var item1 = {{ item1|tojson }}
+</script>
+
+{% endblock %}
+
+{% block body1 %}
+
+{% if loggedinuser %}
+<div class = "checkifloggeduser">
+    <div class = "checkifloggeduser1">
+        {% if is_admin %}
+            <span class = "logged_in_name_admin">
+        {{ loggedinuser }}
+        </span>
+        {% else %}
+            <span class = "logged_in_name">
+         {{ loggedinuser }}
+            </span>
+        {% endif %}
+        <a href = "/logout">Logout</a>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "item1">
+
+    <div class = "iteminfo">{{ item1 }}</div>
+    <div class = "itemsrow11">
+        <img src = "{{ item4 }}">
+        <div class = "item__buttons">
+            <div class = "category_list_field1">
+                <button class = "categoryfieldbutton1">
+                <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                </button>
+            </div>
+            <div class = "category_list_field2">
+                <button class = "categoryfieldbutton2">
+                <img src = "./static/images/item_cart.png" class = "favorite_img2">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class = "list-pricings">
+        <div class = "list-pricings__item">
+            {{ item3 }}
+        </div>
+    </div>
+
+</div>
+<script type = "text/javascript" src = "static/js/listing-page.js"></script>
+
+{% endblock %}

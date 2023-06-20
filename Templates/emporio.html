@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<link rel = "stylesheet" href = "static/css/emporio.css">
+<script>
+    var items = {{ items|tojson }}
+</script>
+
+{% endblock %}
+
+{% block body1 %}
+
+{% if loggedinuser %}
+<div class = "checkifloggeduser">
+    <div class = "checkifloggeduser1">
+        {% if is_admin %}
+            <span class = "logged_in_name_admin">
+        {{ loggedinuser }}
+        </span>
+        {% else %}
+            <span class = "logged_in_name">
+         {{ loggedinuser }}
+            </span>
+        {% endif %}
+        <a href = "/logout">Logout</a>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="emporio__wrapper">
+    <div class="emporio">
+        {% set len = items|length %}
+        {% for i in range(25, len, 3) %}
+        <div class="emporio__row">
+            {% for j in range(i, i+3) %}
+            <div class="emporio__row__item">
+                <img src="static/images/compre{{ j }}.png">
+                <div class="item__buttons">
+                    <div class="category_list_field1">
+                        <button class="categoryfieldbutton1">
+                            <img src="./static/images/item_favorite.png" class="favorite_img1">
+                        </button>
+                    </div>
+                    <div class="category_list_field2">
+                        <button class="categoryfieldbutton2">
+                            <img src="./static/images/item_cart.png" class="favorite_img2">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="category-titles">
+            {% for j in range(i-6, i-3) %}
+                <a href="{{ j }}">
+                    <div class="category-title__item gold">{{ items[j]['title'] }}</div>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="list-pricings">
+            {% for j in range(i-6, i-3) %}
+                <div class="list-pricings__item">{{ items[j]['pricing'] }}</div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script type="text/javascript" src="static/js/listing-page.js"></script>
+<script>
+    var cafeTitle = document.getElementsByClassName('titlecafe')[0];
+    cafeTitle.innerHTML = 'NOSSOS EMPÓRIOS';
+</script>
+
+{% endblock %}

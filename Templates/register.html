@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="static/css/register.css">
+    <script>
+        var items = {{ items|tojson }}
+    </script>
+{% endblock %}
+
+{% block body %}
+<div class="register">
+    <div class="register1"></div>
+    <div class="register_board">
+        <div class="registrationtitle">
+            Sign up
+        </div>
+        <div class="registrationtitle">
+            Personal Details
+        </div>
+        <form action="/register" method="POST" onsubmit="return validateRegister(event)">
+            <div class="registration_11">
+                <div class="registration_111">
+                    Email
+                </div>
+                <div class="registration_112">
+                    <input name="email" class="form2input" id="email">
+                </div>
+            </div>
+            <div class="registration_11">
+                <div class="registration_111">
+                    Username
+                </div>
+                <div class="registration_112">
+                    <input name="username_11" class="form2input" id="username_11">
+                </div>
+            </div>
+            <div class="registration_11">
+                <div class="registration_112">
+                    Password
+                </div>
+                <div class="registration_111">
+                    <input name="password_11" class="form2input" id="password_11" type="password">
+                </div>
+            </div>
+            <div class="registration_11">
+                <div class="registration_112">
+                    Confirm Password
+                </div>
+                <div class="registration_111">
+                    <input name="password_12" class="form2input" id="password_12" type="password">
+                </div>
+            </div>
+            <input type="submit" class="reg_button" name="submit" value="Submit">
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="static/js/register.js"></script>
+{% endblock %}

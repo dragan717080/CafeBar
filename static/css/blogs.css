@@ -1,0 +1,56 @@
+.allblogs {
+    min-height: 43.75rem;
+    font-weight: 600;
+    margin-bottom: 3.6875rem;
+}
+
+.oneblogpost {
+    background-color: #fff;
+    margin-inline: 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-width: 80rem;
+}
+
+.oneblogpost:hover {
+    background-color: #e5a3a3;
+    color: #f03838;
+}
+
+.oneblogpost1 {
+    padding: 0.5rem;
+}
+
+.blogtitlecargo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.latestpost1 {
+    min-height: 48.125rem;
+    background-color: #fff;
+    margin-inline: 1.25rem;
+    padding: 1.375rem;
+}
+
+.featuredblog {
+    height: 1.5rem;
+    width: 6.4375rem;
+    float: right;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0.25rem;
+    text-align: center;
+    padding: 0.75rem;
+    margin-top: 1.375rem;
+    margin-right: 0.875rem;
+}
+
+.featuredblog:hover {
+    background-color: #f03838;
+}
+
+.content {
+    height: 8.75rem;
+    width: 25rem;
+}

@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<link rel = "stylesheet" href = "static/css/aprendamais.css">
+<script>
+    var items = {{ items|tojson }}
+</script>
+
+{% endblock %}
+
+{% block body1 %}
+
+        {% if loggedinuser %}
+<div class = "checkifloggeduser">
+    <div class = "checkifloggeduser1">
+            {% if is_admin %}
+                <span class = "logged_in_name_admin">
+            {{ loggedinuser }}
+            </span>
+            {% else %}
+                <span class = "logged_in_name">
+             {{ loggedinuser }}
+                </span>
+            {% endif %}
+            <a href = "/logout">Logout</a>
+    </div>
+</div>
+        {% endif %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "guide1">
+    <div class = "guide11">
+    <div class = "guide_title">
+        POSTS RECENTES
+    </div>
+
+    <div class = "blogs_1">
+        <div class = "blogs">
+            {% for newblog in listofnewblogs %}
+            <div class = "blog">
+                <div class = "blog__title">
+                    {{ newblog[0] }}
+                </div>
+                <div class = "blog__content">
+                    {{ newblog[1] }}
+                </div>
+                <div class = "blog__author">
+                    By <span>{{ newblog[2] }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class = "guide_title">
+        NOSSOS CAFÉS
+    </div>
+        {% for i in range(9) %}
+    <div class = "guide1_1">
+        <div class = "coffeeitemsrow">
+            <div class = "coffeeitemsrow1">
+            <div class = "coffeeitemsrow11">
+                <img src = "{{ items[i]['imagesource'] }}">
+            </div>
+            <div class = "coffeeitemsrow12">
+                <div class = "category-titles gold">
+                    {{ items[i]['title'] }}
+                </div>
+                <div class = "category-subtitles">
+                    {{ items[i]['pricing'] }}
+                </div>
+            </div>
+            </div>
+            <div class = "item__buttons">
+                <div class = "category_list_field1">
+                        <button class = "categoryfieldbutton1">
+                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                        </button>
+                    </div>
+                    <div class = "category_list_field2">
+                        <button class = "categoryfieldbutton2">
+                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    <div class = "metodos">
+        {% set j = [1] %}
+        {% for i in range (1, 10, 2) %}
+        <div class = "metodos__row">
+            <div class = "metodo__wrapper">
+                <div class = "metodo">
+                <img src = "static/images/metodo{{ i }}.png">
+                </div>
+                <div class = "metodo__title gold">
+                    MÉTODO {{ metodos[i-1] }}
+                </div>
+            </div>
+            {% if i != 9 %}
+            <div class = "metodo__wrapper">
+                <div class = "metodo">
+                <img src = "static/images/metodo{{ i+1 }}.png">
+                </div>
+                <div class = "metodo__title gold">
+                    MÉTODO {{ metodos[i] }}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script type = "text/javascript" src = "static/js/listing-page.js"></script>
+<script>
+    var cafeTitle = document.getElementsByClassName('titlecafe')[0];
+    cafeTitle.innerHTML = 'APRENDA MAIS';
+</script>
+
+{% endblock %}

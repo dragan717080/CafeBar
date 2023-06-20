@@ -1,0 +1,29 @@
+.register {
+    height: 51.875rem;
+    background-color: #CCE6FF;
+}
+
+.register1 {
+    height: 10.625rem;
+    background-color: #CCE6FF;
+}
+
+.register_board {
+    margin-inline: 19.375rem;
+    padding: 1.875rem;
+    background-color: #fff;
+    min-width: 33.75rem;
+}
+
+.register_board1 {
+    font-weight: bold;
+    border-bottom: 0.0625rem solid lightgray;
+}
+
+.reg_button {
+    height: 2.375rem;
+    width: 4.375rem;
+    background-color: #005bff;
+    color: #fff;
+    transform: translate(0.625rem, 0.875rem);
+}

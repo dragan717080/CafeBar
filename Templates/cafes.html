@@ -1,0 +1,338 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<link rel = "stylesheet" href = "static/css/cafes.css">
+<script>
+    var items = {{ items|tojson }}
+</script>
+
+{% endblock %}
+
+{% block body1 %}
+
+        {% if loggedinuser %}
+<div class = "checkifloggeduser">
+    <div class = "checkifloggeduser1">
+            {% if is_admin %}
+                <span class = "logged_in_name_admin">
+            {{ loggedinuser }}
+            </span>
+            {% else %}
+                <span class = "logged_in_name">
+             {{ loggedinuser }}
+                </span>
+            {% endif %}
+            <a href = "/logout">Logout</a>
+    </div>
+</div>
+        {% endif %}
+
+{% endblock %}
+
+{% block body %}
+
+1
+<div class = "divcoffees1">
+    <div class = "divcoffees11">
+    Aqui está nossa seleção de cafés especiais. São cafés de variedades e regiões distintas proporcionando um sensorial totalmente diferente. Todos de alta qualidade <br>
+    (com pontuação superior a 80 pontos pela Specialty Coffee Association) produzidos e torrados semanalmente de forma a potencializar suas melhores <br>
+    características. A diferença para um café tradicional é bem marcante o que torna a experiência de tomar um café especial uma viagem sem volta.<br>
+    Escolha o que mais lhe agrada ou leve todos e faça uma aventura sensorial deliciosa.<br><br>
+
+    Uma boa xícara!
+    </div>
+    <div class = "divcoffees12">
+        <div class = "coffeeitemsrow1">
+            <div class = "coffeeitemsrow11">
+                <img src = "static/images/compre6.png">
+                <div class = "item__buttons">
+                    <div class = "category_list_field1">
+                        <button class = "categoryfieldbutton1">
+                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                        </button>
+                    </div>
+                    <div class = "category_list_field2">
+                        <button class = "categoryfieldbutton2">
+                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class = "coffeeitemsrow11">
+                <img src = "static/images/compre7.png">
+                <div class = "item__buttons">
+                    <div class = "category_list_field1">
+                        <button class = "categoryfieldbutton1">
+                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                        </button>
+                    </div>
+                    <div class = "category_list_field2">
+                        <button class = "categoryfieldbutton2">
+                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class = "coffeeitemsrow11">
+                <img src = "static/images/compre8.png">
+                <div class = "item__buttons">
+                    <div class = "category_list_field1">
+                        <button class = "categoryfieldbutton1">
+                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                        </button>
+                    </div>
+                    <div class = "category_list_field2">
+                        <button class = "categoryfieldbutton2">
+                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "category-titles">
+            <a href = "/0">
+            <div class = "category-title__item gold">
+                Café Especial URBE 01
+            </div>
+            </a>
+            <a href = "/1">
+            <div class = "category-title__item gold">
+                Café Especial URBE 02
+            </div>
+            </a>
+            <a href = "/2">
+            <div class = "category-title__item gold">
+                Café Especial URBE 03
+            </div>
+            </a>
+        </div>
+        <div class = "list-pricings">
+            <div class = "list-pricings__item">
+                R$ 33,00
+            </div>
+            <div class = "list-pricings__item">
+                R$ 27,00
+            </div>
+            <div class = "list-pricings__item">
+                R$ 42,00
+            </div>
+        </div>
+        <div class = "coffeeitemsrow1">
+            <div class = "coffeeitemsrow11">
+                <img src = "static/images/compre9.png">
+                <div class = "item__buttons">
+                    <div class = "category_list_field1">
+                        <button class = "categoryfieldbutton1">
+                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                        </button>
+                    </div>
+                    <div class = "category_list_field2">
+                        <button class = "categoryfieldbutton2">
+                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class = "coffeeitemsrow11">
+                <img src = "static/images/compre10.png">
+                <div class = "item__buttons">
+                    <div class = "category_list_field1">
+                        <button class = "categoryfieldbutton1">
+                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                        </button>
+                    </div>
+                    <div class = "category_list_field2">
+                        <button class = "categoryfieldbutton2">
+                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class = "coffeeitemsrow11">
+                <img src = "static/images/compre15.png">
+                <div class = "item__buttons">
+                    <div class = "category_list_field1">
+                        <button class = "categoryfieldbutton1">
+                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                        </button>
+                    </div>
+                    <div class = "category_list_field2">
+                        <button class = "categoryfieldbutton2">
+                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "category-titles">
+            <a href = "/4">
+            <div class = "category-title__item gold">
+                Café Especial URBE 04
+            </div>
+            </a>
+            <a href = "/5">
+            <div class = "category-title__item gold">
+                Café Especial URBE VINIL
+            </div>
+            </a>
+            <a href = "/9">
+            <div class = "category-title__item gold">
+                Cápsulas Urbe - Intenso
+            </div>
+            </a>
+        </div>
+        <div class = "list-pricings">
+            <div class = "list-pricings__item">
+                R$ 64,00
+            </div>
+            <div class = "list-pricings__item">
+                R$ 22,50
+            </div>
+            <div class = "list-pricings__item">
+                R$ 18,00
+            </div>
+        </div>
+        <div class = "coffeeitemsrow1">
+            <div class = "coffeeitemsrow11">
+                <img src = "static/images/compre16.png">
+                <div class = "item__buttons">
+                <div class = "category_list_field1">
+                    <button class = "categoryfieldbutton1">
+                    <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                    </button>
+                </div>
+                <div class = "category_list_field2">
+                    <button class = "categoryfieldbutton2">
+                    <img src = "./static/images/item_cart.png" class = "favorite_img2">
+                    </button>
+                </div>
+            </div>
+            </div>
+            <div class = "coffeeitemsrow11">
+                <img src = "static/images/compre17.png">
+                <div class = "item__buttons">
+                    <div class = "category_list_field1">
+                        <button class = "categoryfieldbutton1">
+                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                        </button>
+                    </div>
+                    <div class = "category_list_field2">
+                        <button class = "categoryfieldbutton2">
+                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class = "coffeeitemsrow11">
+                <img src = "static/images/compre18.png">
+                <div class = "item__buttons">
+                    <div class = "category_list_field1">
+                        <button class = "categoryfieldbutton1">
+                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                        </button>
+                    </div>
+                    <div class = "category_list_field2">
+                        <button class = "categoryfieldbutton2">
+                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "category-titles">
+            <a href = "/10">
+            <div class = "category-title__item gold">
+                Cápsulas Urbe - Encorpado
+            </div>
+            </a>
+            <a href = "/11">
+            <div class = "category-title__item gold">
+                ColdBrew Urbe - 200ml
+            </div>
+            </a>
+            <a href = "/12">
+            <div class = "category-title__item gold">
+                Trio URBE - 250g
+            </div>
+            </a>
+        </div>
+        <div class = "list-pricings">
+            <div class = "list-pricings__item">
+                R$ 18,00
+            </div>
+            <div class = "list-pricings__item">
+                R$ 12,00
+            </div>
+            <div class = "list-pricings__item">
+                R$ 86,70
+            </div>
+        </div>
+        <div class = "coffeeitemsrow2">
+            <div class = "coffeeitemsrow11">
+                <img src = "static/images/compre19.png">
+                <div class = "item__buttons-alt">
+                    <div class = "category_list_field1">
+                        <button class = "categoryfieldbutton1">
+                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                        </button>
+                    </div>
+                    <div class = "category_list_field2">
+                        <button class = "categoryfieldbutton2">
+                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class = "coffeeitemsrow11">
+                <img src = "static/images/compre20.png">
+                <div class = "item__buttons-alt">
+                    <div class = "category_list_field1">
+                        <button class = "categoryfieldbutton1">
+                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                        </button>
+                    </div>
+                    <div class = "category_list_field2">
+                        <button class = "categoryfieldbutton2">
+                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "category__title2">
+            <a href = "/13">
+            <div class = "category__title_2 gold">
+                Quarteto URBE - 250g
+            </div>
+            </a>
+            <a href = "/14">
+            <div class = "category__title_2 gold">
+                5 Garrafas De ColdBrew Urbe
+            </div>
+            </a>
+        </div>
+        <div class = "category_list_pricing2">
+            <div class = "category_list_price_2">
+                R$ 141,10
+            </div>
+            <div class = "category_list_price_2">
+                R$ 48,00
+            </div>
+        </div>
+    </div>
+</div>
+<script type = "text/javascript" src = "static/js/listing-page.js"></script>
+<script>
+    var cafeTitle = document.getElementsByClassName('titlecafe')[0];
+    cafeTitle.innerHTML = 'NOSSOS CAFÉS';
+</script>
+
+{% endblock %}

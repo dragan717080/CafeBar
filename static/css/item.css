@@ -1,0 +1,96 @@
+.iteminfo {
+    margin-inline: 9%;
+    display: flex;
+    justify-content: center;
+}
+
+.footermenu {
+    margin-top: 4.1875rem;
+}
+
+.itemsrow11 {
+    margin-left: 43%;
+}
+
+.itemsrow11 img {
+    height: 13.125rem;
+    width: 13.125rem;
+    margin-left: 0.25rem;
+}
+
+.category-titles {
+    margin-inline: 10%;
+    margin-top: 2.5rem;
+}
+
+.list-pricings {
+    margin-inline: 14%;
+    font-size: 14px;
+    color: #696969;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.list-pricings__item {
+    width: 14.125rem;
+    margin-left: -2.5rem;
+    margin-bottom: 4.5rem;
+    text-align: center;
+}
+
+.item__buttons {
+    width: 13.125rem;
+    margin-left: 1.5rem;
+    position: absolute;
+    color: #fff;
+    display: flex;
+}
+
+.category_list_field1 {
+    width: 6rem;
+    margin-left: 2.5rem;
+}
+
+.category_list_field1 img {
+    height: 2.5rem;
+    width: 4.375rem;
+    opacity: 0.7;
+    margin-top: -0.625rem;
+    transform: translate(-1.0625rem, 0.625rem);
+}
+
+.category_list_field2 img {
+    height: 2.5rem;
+    width: 4.375rem;
+    margin-top: -0.625rem;
+    transform: translate(-1.0625rem, 0.625rem);
+}
+
+.categoryfieldbutton1 {
+    width: 0.625rem;
+    opacity: 0.7;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transform: translate(0.625rem, -0.625rem);
+}
+
+.categoryfieldbutton2 {
+    width: 0.625rem;
+    opacity: 0.7;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transform: translate(0.625rem, -0.625rem);
+}
+
+.item__buttons-alt {
+    height: 13.125rem;
+    width: 15rem;
+    margin-left: 4.375rem;
+    position: absolute;
+    color: #fff;
+    display: flex;
+    transform: translateY(12.4375rem);
+}

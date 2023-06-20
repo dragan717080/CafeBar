@@ -1,0 +1,259 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 1903px;
+    overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+}
+
+row {
+    display: flex;
+}
+
+.header-menu {
+    height: 70px;
+    width: 1903px;
+    display: flex;
+    position: fixed;
+    background-color: #fff;
+    align-items: center;
+}
+
+.header-menu nav {
+    display: flex;
+}
+
+.header-menu__item {
+    margin-inline: 14px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+}
+
+.header-menu__item a:hover {
+    color: #ffdb00;
+}
+
+.gold {
+    color: #222;
+}
+
+.gold:hover {
+    color: #ffdb00;
+}
+
+.blog__author span {
+    color: red;
+}
+
+.header-menu__logo {
+    height: 54px;
+    width: 100px;
+    margin-left: 40px;
+    margin-right: 370px;
+    background-image: url(../images/logo.png);
+    background-size: cover;
+    margin-top: -12px;
+}
+
+.header__buttons {
+    margin-left: 560px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: -3px;
+}
+
+.header__buttons > * {
+    margin-inline: 10px;
+}
+
+.header-menu__profile {
+    height: 30px;
+    width: 30px;
+    background-image: url(../images/profile.png);
+    background-size: cover;
+}
+
+.header-menu__fav {
+    height: 30px;
+    width: 30px;
+    background-image: url(../images/favorite.png);
+    background-size: cover;
+}
+
+.header-menu__fav-count {
+    height: 19px;
+    width: 14px;
+    padding-left: 4px;
+    padding-bottom: 4px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    transform: translate(23px, -4px);
+}
+
+.header-menu__cart {
+    height: 30px;
+    width: 30px;
+    background-image: url(../images/cart.png);
+    background-size: cover;
+}
+
+.header-menu__cart-count {
+    height: 19px;
+    width: 14px;
+    padding: 0 0 4px 4px;
+    padding-bottom: 4px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    transform: translate(23px, -4px);
+}
+
+.header-menu a {
+    text-decoration: none;
+    color: #000;
+}
+
+.titlecafe {
+    height: 160px;
+    background-image: url(../images/capsulasdecafe7.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: left;
+    color: #fff;
+    font-family: Futura, sans-serif;
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 56px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar_1 {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar_content {
+    height: 26px;
+    padding: 4px;
+}
+
+.searchbar__button {
+    height: 38px;
+    width: 41px;
+    background-color: #005bff;
+    color: #fff;
+    transform: translate(-11px, 2px);
+}
+
+.searchbar__button img {
+    height: 17px;
+    width: 31px;
+    transform: translateX(-6px);
+    padding-inline: 4px;
+}
+
+.footermenu {
+    height: 100px;
+    padding-top: 40px;
+    background-color: #000;
+    color: #fff;
+}
+
+.footermenu_1 {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.footermenu_1 span {
+    color: #ffdb00;
+    margin-inline: 4px;
+}
+
+.footermenu_1_1 {
+    margin-inline: 10px;
+}
+
+.title_cafe_1 {
+    font-family: "Futura", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title_cafe_1 > * {
+    margin-inline: 10px;
+}
+
+.titlelines {
+    min-width: 70px;
+    border-bottom: 2px solid #000;
+}
+
+.search1 {
+    display: none;
+}
+
+.search1 > * {
+    margin-inline: 4px;
+}
+
+.logged_in_name {
+    color: #000;
+}
+
+.logged_in_name_admin {
+    color: red;
+}
+
+.checkifloggeduser {
+    width: 1903px;
+    display: flex;
+    justify-content: right;
+    background-color: #fff;
+    height: 24px;
+    transform: translateY(24px);
+    position: fixed;
+}
+
+.checkifloggeduser1 {
+    width: 1903px;
+    height: 24px;
+    margin-bottom: 40px;
+    margin-right: -24px;
+    padding-right: 62px;
+    text-align: right;
+}
+
+.checkifloggeduser1 a {
+    color: #0396fd;
+    text-decoration: none;
+}
+
+.search_content_items {
+    margin-left: 40%;
+    transform: translate(80px, -34px);
+}
+
+body::-webkit-scrollbar {
+    width: 0.7em;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, lightgray, darkgray);
+    outline: 1px solid slategrey;
+}
