@@ -1,11 +1,11 @@
-.cart1 {
+.cart__row {
     width: 118.9375rem;
     min-width: 73.75rem;
     display: flex;
     justify-content: center;
 }
 
-.cart1 > * {
+.cart__row > * {
     margin-inline: 0.625rem;
 }
 
@@ -14,14 +14,14 @@
     padding-top: 2.5rem;
 }
 
-.cart1 {
+.cart__row {
     width: 118.9375rem;
     min-width: 73.75rem;
     display: flex;
     justify-content: center;
 }
 
-.cart1 > * {
+.cart__row > * {
     margin-inline: 0.625rem;
 }
 
@@ -61,10 +61,10 @@
     margin-left: 0.4375rem;
 }
 
-.cartbutton {
+.cart-btn {
     background-color: #005bff;
     color: #fff;
-    margin-left: 30%;
+    margin-left: 49%;
     margin-bottom: 4.375rem;
 }
 

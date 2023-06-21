@@ -1,17 +1,17 @@
-from subsidiary_functions import *
+from flask import request, redirect, render_template, Blueprint, session
+from db_models import User, Blog
+from utils import Utils
 from flask_login import login_user, current_user
-from log_config import logging
-from items import items, metodos
-import time
+from items import items
 
 index_pages = Blueprint('index', __name__,
-                        template_folder='Templates', static_folder='static', url_prefix = "/")
+    template_folder='Templates', static_folder='static', url_prefix = '/')
 
-@index_pages.route("/", methods=["POST"])
+@index_pages.route('/', methods=['POST'])
 def index_post():
-    if request.form['submit'] == "LOGIN":
-        su1 = request.form['username_1']
-        sp1 = request.form['password_1']
+    if request.form['submit'] == 'LOGIN':
+        su1 = request.form['username']
+        sp1 = request.form['password']
         check_login = User.query.filter_by(username=su1).first()
 
         if check_login is None and current_user.is_anonymous:
@@ -20,38 +20,38 @@ def index_post():
         passwords_match = check_login.password == sp1
         if check_login:
             if not passwords_match:
-                listofnewblogs = []
+                new_blogs = []
                 for i in range(min(3, len(Blog.query.all()))):
-                    listofnewblogs.append(Blog.query.all()[i])
+                    new_blogs.append(Blog.query.all()[i])
 
-                return render_template("index.html", listofnewblogs=listofnewblogs, items=items)
+                return render_template('index.html', new_blogs=new_blogs, items=items)
             else:
                 login_user(check_login)
                 session['username'] = current_user.username
-                listofnewblogs = []
+                new_blogs = []
                 for blog in Blog.query.all()[:3]:
-                    listofnewblogs.append([blog.title.capitalize(), blog.content.capitalize(), blog.author])
+                    new_blogs.append([blog.title.capitalize(), blog.content.capitalize(), blog.author])
 
-                return render_template("index.html", loggedinuser=current_user.username, listofnewblogs=listofnewblogs, is_admin=current_user.is_admin, items=items)
+                return render_template('index.html', loggedinuser=current_user.username, new_blogs=new_blogs, is_admin=current_user.is_admin, items=items)
 
-        return redirect("/")
+        return redirect('/')
     else:
         # posting via searchbar
-        return post_with_searchbar()
+        return Utils.post_with_searchbar()
 
 
-@index_pages.route("/")
+@index_pages.route('/')
 def index():
-    listofnewblogs = [[blog.title.capitalize(), blog.content.capitalize(), blog.author] for blog in
-                      Blog.query.all()[:3]]
+    new_blogs = [[blog.title.capitalize(), blog.content.capitalize(), blog.author] for blog in
+        Blog.query.all()[:3]]
 
     if current_user.is_anonymous:
-        return render_template("index.html", listofnewblogs=listofnewblogs, items=items)
+        return render_template('index.html', new_blogs=new_blogs, items=items)
 
-    return render_template("index.html", loggedinuser=current_user.username, is_admin=current_user.is_admin,
-                           listofnewblogs=listofnewblogs, items=items)
+    return render_template('index.html', loggedinuser=current_user.username, is_admin=current_user.is_admin,
+        new_blogs=new_blogs, items=items)
 
-@index_pages.route("/<int:id>")
+@index_pages.route('/<int:id>')
 def get_item(id):
     item_data = items[id]
     item1 = item_data['title']
@@ -68,18 +68,16 @@ def get_item(id):
     }
 
     if current_user.is_anonymous:
-        # Get for non-login
-        return render_template("item.html", **template_args)
+        return render_template('item.html', **template_args)
 
     template_args.update({
         'loggedinuser': current_user.username,
         'is_admin': current_user.is_admin
     })
 
-    # Get for login
-    return render_template("item.html", **template_args)
+    return render_template('item.html', **template_args)
 
 
-@index_pages.route("/<int:id>", methods=["POST"])
+@index_pages.route('/<int:id>', methods=['POST'])
 def post_item(id):
-    return post_with_searchbar()
+    return Utils.post_with_searchbar()

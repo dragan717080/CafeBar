@@ -1,4 +1,4 @@
-from subsidiary_functions import read_from_json
+from utils import Utils
 
-data = read_from_json('items.json')
+data = Utils.read_from_json('items.json')
 items, metodos, admins = data['items'], data['metodos'], data['admins']

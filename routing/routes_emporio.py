@@ -1,15 +1,15 @@
-from subsidiary_functions import *
+from flask import render_template, Blueprint
+from utils import Utils
 from flask_login import current_user
-from items import items, metodos
-import time
+from items import items
 
 emporio_pages = Blueprint('emporio', __name__,
-                        template_folder='Templates', static_folder='static', url_prefix = "/")
+    template_folder='Templates', static_folder='static', url_prefix = "/")
 
 @emporio_pages.route("/emporio", methods = ["POST"])
 def emporio_post():
 
-    return post_with_searchbar()
+    return Utils.post_with_searchbar()
 
 @emporio_pages.route("/emporio")
 def emporio():

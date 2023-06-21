@@ -4,6 +4,10 @@
     margin-bottom: 3.6875rem;
 }
 
+.allblogs form {
+    margin-left:24px;
+}
+
 .oneblogpost {
     background-color: #fff;
     margin-inline: 1.25rem;

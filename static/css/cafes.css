@@ -1,24 +1,24 @@
-.divcoffees1 {
+.coffees {
     margin-inline: 17%;
     color: #535353;
 }
 
-.divcoffees11 {
+.listing-overview {
     font-size: 0.875rem;
     text-align: center;
 }
 
-.divcoffees12 {
+.coffees-listing {
     margin-top: 0.625rem;
     margin-bottom: 6.25rem;
 }
 
-.divcoffees12 img {
+.coffees-listing img {
     height: 13.125rem;
     width: 13.125rem;
 }
 
-.coffeeitemsrow1 {
+.listing-item__content {
     margin-inline: 10%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -48,7 +48,7 @@
     text-decoration: none;
 }
 
-.category-title__item {
+.category-title__lg {
     width: 14.125rem;
     font-size: 0.9375rem;
     font-weight: 500;
@@ -81,7 +81,7 @@
     text-decoration: none;
 }
 
-.category__title_2 {
+.category__row__titles__5 {
     font-size: 0.9375rem;
     font-weight: 500;
 }
@@ -107,11 +107,11 @@
     display: flex;
 }
 
-.category_list_field1 {
+.fav-item-button__wrapper {
     width: 4.5rem;
 }
 
-.category_list_field1 img {
+.fav-item-button__wrapper img {
     height: 2.5rem;
     width: 4.375rem;
     opacity: 0.7;
@@ -119,14 +119,14 @@
     transform: translate(-1.0625rem, 0.625rem);
 }
 
-.category_list_field2 img {
+.cart-item-button__wrapper img {
     height: 2.5rem;
     width: 4.375rem;
     margin-top: -0.625rem;
     transform: translate(-1.0625rem, 0.625rem);
 }
 
-.categoryfieldbutton1 {
+.fav-item-button {
     width: 0.625rem;
     opacity: 0.7;
     border: none;
@@ -135,7 +135,7 @@
     transform: translate(0.625rem, -0.625rem);
 }
 
-.categoryfieldbutton2 {
+.cart-item-button {
     width: 0.625rem;
     opacity: 0.7;
     border: none;

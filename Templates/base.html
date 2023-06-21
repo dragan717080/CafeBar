@@ -1,72 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-<meta charset="UTF-8">
+<meta charset='UTF-8'>
     {% block head %}
 
     {% endblock %}
-<link rel = "stylesheet" href = "./static/css/base.css">
-<link rel="shortcut icon" href="#">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+<link rel = 'stylesheet' href = './static/css/base.css'>
+<link rel='shortcut icon' href='#'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap' rel='stylesheet'>
 </head>
 <body>
-    <div class = "header-menu">
-        <a href = "/">
-            <div class = "header-menu__logo"></div>
+    <div class = 'header-menu'>
+        <a href = '/'>
+            <div class = 'header-menu__logo'></div>
         </a>
         <nav>
-            <div class = "header-menu__item gold">
-                <a href = "/cafes">
+            <div class = 'header-menu__item gold'>
+                <a href = '/cafes'>
                     COMPRE CAFÉS
                 </a>
             </div>
-            <div class = "header-menu__item gold">
-                <a href = "/cha">
+            <div class = 'header-menu__item gold'>
+                <a href = '/cha'>
                     CHÁ
                 </a>
             </div>
-            <div class = "header-menu__item gold">
-                <a href = "/emporio">
+            <div class = 'header-menu__item gold'>
+                <a href = '/emporio'>
                     EMPÓRIO
                 </a>
             </div>
-            <div class = "header-menu__item gold">
-                <a href = "/aprendamais">
+            <div class = 'header-menu__item gold'>
+                <a href = '/aprendamais'>
                 APRENDA MAIS
                 </a>
             </div>
             {% if is_admin %}
-            <div class = "header-menu__item gold">
-                <a href = "/blogs" style = "color:red; text-decoration: none">
+            <div class = 'header-menu__item header-menu__additional gold'>
+                <a href = '/blogs'>
                     BLOGS
                 </a>
             </div>
-            <div class = "header-menu__item gold">
-                <a href = "/allusers" style = "color:red; text-decoration: none">
+            <div class = 'header-menu__item header-menu__additional gold'>
+                <a href = '/api/users'>
                     USERS
                 </a>
             </div>
             {% endif %}
         </nav>
-        <div class = "header__buttons">
+        <div class = 'header__buttons'>
             {% if loggedinuser %}
-            <a href = "/profile">
-            <div class = "header-menu__profile"></div>
+            <a href = '/profile'>
+            <div class = 'header-menu__profile'></div>
             </a>
             {% endif %}
-            <a href = "/fav">
-                <div class = "header-menu__fav">
-                    <div class = "header-menu__fav-count">
+            <a href = '/fav'>
+                <div class = 'header-menu__fav'>
+                    <div class = 'header-menu__fav-count'>
                         0
                     </div>
                 </div>
             </a>
-            <a href = "/cart">
-                <div class = "header-menu__cart">
-                    <div class = "header-menu__cart-count">
+            <a href = '/cart'>
+                <div class = 'header-menu__cart'>
+                    <div class = 'header-menu__cart-count'>
                         0
                     </div>
                 </div>
@@ -77,46 +77,46 @@
     {% block body1 %}
 
     {% endblock %}
-    <div class = "titlecafe">
+    <div class = 'titlecafe'>
         SEU CAFÉ COM ORIGEM
     </div>
-    <div class = "searchbar_1">
-        <form method = "POST" onsubmit = "return validateForm1()">
-            <input onkeyup = "searchbar()" class = "searchbar_content" name = "searchbar_content">
-            <input type = "hidden" class = "searchbar_2_content" name = "searchbar_2_content">
-            <input type = "hidden" class = "searchbar_3_content" name = "searchbar_3_content">
-            <input type = "hidden" class = "searchbar_4_content" name = "searchbar_4_content">
-            <button type = "submit" class = "searchbar__button" value = "submit" name = "submit">
-                <img src = "./static/images/cafe_search_enlarger.png">
+    <div class = 'searchbar__wrapper'>
+        <form method = 'POST' onsubmit = 'return validateForm1()'>
+            <input onkeyup = 'searchbar()' class = 'searchbar_content' name = 'searchbar_content'>
+            <input type = 'hidden' class = 'searchbar_2_content' name = 'searchbar_2_content'>
+            <input type = 'hidden' class = 'searchbar_3_content' name = 'searchbar_3_content'>
+            <input type = 'hidden' class = 'searchbar_4_content' name = 'searchbar_4_content'>
+            <button type = 'submit' class = 'searchbar__button' value = 'submit' name = 'submit'>
+                <img src = './static/images/cafe_search_enlarger.png'>
             </button>
         </form>
     </div>
-    <div class = "search_content_items"></div>
+    <div class = 'search_content_items'></div>
 
     {% block body %}
 
     {% endblock %}
 
-<div class = "footermenu">
-    <div class = "footermenu_1">
+<div class = 'footermenu'>
+    <div class = 'footermenu_1'>
         Copyright © 2021 <span>URBE CAFÉ</span> Todos direitos reservados.
     </div>
-    <div class = "footermenu_1">
-        <div class = "footermenu_1_1">
+    <div class = 'footermenu_1'>
+        <div class = 'footermenu_1_1'>
             Política de frete
         </div>
-        <div class = "footermenu_1_1">
+        <div class = 'footermenu_1_1'>
             Política de compras
         </div>
-        <div class = "footermenu_1_1">
+        <div class = 'footermenu_1_1'>
             Política de devolução
         </div>
-        <div class = "footermenu_1_1">
+        <div class = 'footermenu_1_1'>
             Política de privacidade
         </div>
     </div>
 </div>
 
-<script type = "text/javascript" src = "./static/js/base.js"></script>
+<script type = 'text/javascript' src = './static/js/base.js'></script>
 </body>
 </html>

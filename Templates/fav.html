@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <link rel="stylesheet" href="static/css/fav.css">
+    <link rel='stylesheet' href='static/css/fav.css'>
     <script>
         var items = {{ items|tojson }}
     </script>
@@ -9,26 +9,26 @@
 
 {% block body1 %}
     {% if loggedinuser %}
-        <div class="checkifloggeduser">
-            <div class="checkifloggeduser1">
+        <div class='checkifloggeduser'>
+            <div class='checkifloggeduser1'>
                 {% if is_admin %}
-                    <span class="logged_in_name_admin">
+                    <span class='logged_in_name_admin'>
                         {{ loggedinuser }}
                     </span>
                 {% else %}
-                    <span class="logged_in_name">
+                    <span class='logged_in_name'>
                         {{ loggedinuser }}
                     </span>
                 {% endif %}
-                <a href="/logout">Logout</a>
+                <a href='/logout'>Logout</a>
             </div>
         </div>
     {% endif %}
 {% endblock %}
 
 {% block body %}
-    <div class="fav_1">
-        <div class="fav1"></div>
+    <div class='favs'>
+        <div class='favs__row'></div>
     </div>
-    <script src="static/js/fav.js"></script>
+    <script src='static/js/fav.js'></script>
 {% endblock %}

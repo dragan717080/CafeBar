@@ -1,15 +1,15 @@
-from subsidiary_functions import *
+from flask import render_template, Blueprint
 from flask_login import current_user
-from items import items, metodos
-import time
+from utils import Utils
+from items import items
 
 chas_pages = Blueprint('chas', __name__,
-                        template_folder='Templates', static_folder='static', url_prefix = "/")
+    template_folder='Templates', static_folder='static', url_prefix = "/")
 
 @chas_pages.route("/cha", methods = ["POST"])
 def chas_post():
 
-    return post_with_searchbar()
+    return Utils.post_with_searchbar()
 
 @chas_pages.route("/cha")
 def chas():

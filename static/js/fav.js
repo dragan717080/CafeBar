@@ -1,4 +1,4 @@
-const favElement = document.getElementsByClassName('fav1')[0];
+const favElement = document.getElementsByClassName('favs__row')[0];
 const headerMenuFavCount = document.getElementsByClassName('header-menu__fav-count')[0];
 const headerMenuCartCount = document.getElementsByClassName('header-menu__cart-count')[0];
 
@@ -31,9 +31,9 @@ if (sessionStorage.getObj('cartitems') == null) sessionStorage.setObj('cartitems
 headerMenuCartCount.innerHTML = sessionStorage.getObj('cartitems').length;
 
 for (let i = 0; i < favItems.length; i++) {
-  favElement.insertAdjacentHTML('afterend', `<div class='fav1'>
+  favElement.insertAdjacentHTML('afterend', `<div class='favs__row'>
     <div class='fav-item__title'>${titles[favItems[i]]}</div>
     <div class='fav-item__img'><img src=${imageSources[favItems[i]]} class='fav12img'></div>
-    <div class='fav14'>${pricings[favItems[i]]}</div>
+    <div class='fav__item__price'>${pricings[favItems[i]]}</div>
   </div>`);
 }

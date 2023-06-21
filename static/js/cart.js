@@ -1,8 +1,8 @@
-const cart1 = document.getElementsByClassName('cart1')[0];
+const cart__row = document.getElementsByClassName('cart__row')[0];
 const cart11 = document.getElementsByClassName('cart11');
 const cart14 = document.getElementsByClassName('cart14');
 const cartTotal = document.getElementsByClassName('cart_total')[0];
-const cartbutton = document.getElementsByClassName('cartbutton')[0];
+const cartButton = document.getElementsByClassName('cart-btn')[0];
 const headerFavCount = document.getElementsByClassName('header-menu__fav-count')[0];
 const headerCartCount = document.getElementsByClassName('header-menu__cart-count')[0];
 
@@ -15,8 +15,8 @@ Storage.prototype.getObj = function(key) {
 
 const cartitems = sessionStorage.getObj('cartitems');
 if (cartitems.length === 0) {
-  if (cartbutton !== undefined)
-    cartbutton.style.display = 'none';
+  if (cartButton !== undefined)
+    cartButton.style.display = 'none';
   cartTotal.innerHTML = `Looks like you have no items in cart. Make sure to check our <a href='/'>amazing coffees and teas</a>!`;
 }
 
@@ -38,9 +38,9 @@ headerCartCount.innerHTML = sessionStorage.getObj('cartitems').length;
 let cartsum = 0;
 
 cartitems.forEach((itemIndex) => {
-  cart1.insertAdjacentHTML(
+  cart__row.insertAdjacentHTML(
     'afterend',
-    `<div class='cart1'>
+    `<div class='cart__row'>
       <div class='cart11'>${titles[itemIndex]}</div>
       <div class='cart12'><img src='${imageSources[itemIndex]}' class='cart12img'></div>
       <div class='cart13'>

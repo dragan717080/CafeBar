@@ -28,27 +28,28 @@ if (!sessionStorage.getObj('favitems')) sessionStorage.setObj('favitems', []);
 headerFavCount.innerHTML = sessionStorage.getObj('favitems').length;
 headerCartCount.innerHTML = sessionStorage.getObj('cartitems').length;
 
+const removeLeadingDotSlash = (str) => Array.isArray(str) ? str : str.replace(/^\.\//, '');
+
 function addButtonColorsLoad() {
     for (let i = 0; i < categoryFields.length; i++) {
         let itemImgSource = isOnMetodosPage
         ? categoryFields[i].parentNode.children[0].getElementsByTagName('img')[0].getAttribute('src')
         : categoryFields[i].parentNode.children[0].getAttribute('src');
-        if (itemImgSource.substr(0, 2) === './') {
-            itemImgSource = itemImgSource.slice(2);
-        }
+        itemImgSource = itemImgSource;
+
         let elemindex = imageSources.indexOf(itemImgSource);
 
-        const itemsFavButton = categoryFields[i].parentNode.children[1].children[0].children[0].children.item(0);
-        const itemsCartButton = categoryFields[i].parentNode.children[1].children[1].children[0].children.item(0);
+        const itemFavButton = categoryFields[i].parentNode.children[1].children[0].children[0].children.item(0);
+        const itemCartButton = categoryFields[i].parentNode.children[1].children[1].children[0].children.item(0);
 
         if (sessionStorage.getObj('favitems').length !== 0) {
             const attr = sessionStorage.getObj('favitems')?.includes(elemindex) ? '_active' : '';
-            itemsFavButton.setAttribute('src', `static/images/item_favorite${attr}.png`);
+            itemFavButton.setAttribute('src', `static/images/item_favorite${attr}.png`);
         }
 
         if (sessionStorage.getObj('cartitems').length !== 0) {
             const attr = sessionStorage.getObj('cartitems')?.includes(elemindex) ? '_active' : '';
-            itemsCartButton.setAttribute('src', `static/images/item_cart${attr}.png`);
+            itemCartButton.setAttribute('src', `static/images/item_cart${attr}.png`);
         }
     }
 }
@@ -56,10 +57,11 @@ function addButtonColorsLoad() {
 function addButtonClickListeners() {
   for (let i = 0; i < categoryFields.length; i++) {
     categoryFields[i].addEventListener('click', (event) => {
-      if (event.target && event.target.matches('.favorite_img1')) {
+      if (event.target && event.target.matches('.fav-item-button__img')) {
         const itemFavButton = event.target;
         const isItemFavorite = itemFavButton.getAttribute('src').split('/').pop() === 'item_favorite.png';
-        const targetImageSrc = itemFavButton.parentNode.parentNode.parentNode.parentNode.getElementsByTagName('img')[0].getAttribute('src');
+        const targetImageNode = itemFavButton.parentNode.parentNode.parentNode.parentNode.getElementsByTagName('img')[0].getAttribute('src');
+        const targetImageSrc = removeLeadingDotSlash(targetImageNode);
         const elementIndex = imageSources.indexOf(targetImageSrc);
         const favItems = sessionStorage.getObj('favitems') || [];
 
@@ -80,10 +82,11 @@ function addButtonClickListeners() {
         }
       }
 
-      if (event.target && event.target.matches('.favorite_img2')) {
+      if (event.target && event.target.matches('.cart-item-button__img')) {
         const itemCartButton = event.target;
         const isItemCart = itemCartButton.getAttribute('src').split('/').pop() === 'item_cart.png';
-        const targetImageSrc = itemCartButton.parentNode.parentNode.parentNode.parentNode.getElementsByTagName('img')[0].getAttribute('src');
+        const targetImageNode = itemCartButton.parentNode.parentNode.parentNode.parentNode.getElementsByTagName('img')[0].getAttribute('src');
+        const targetImageSrc = removeLeadingDotSlash(targetImageNode);
         const elementIndex = imageSources.indexOf(targetImageSrc);
         const cartItems = sessionStorage.getObj('cartitems') || [];
 

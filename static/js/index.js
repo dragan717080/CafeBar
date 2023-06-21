@@ -5,10 +5,7 @@ const itemButtonsAlts = document.getElementsByClassName("item__buttons-alt");
 const headerFavCount = document.getElementsByClassName("header-menu__fav-count")[0];
 const headerCartCount = document.getElementsByClassName("header-menu__cart-count")[0];
 const categoryFields = Array.from(itemButtons).concat(Array.from(itemButtonsAlts));
-
-categoryTitles[0].style.marginRight = "23%";
-categorySubtitles[0].style.marginRight = "23%";
-categoryTitles[0].style.marginTop = "10px";
+const isOnMetodosPage = document.getElementsByClassName('metodos').length > 0;
 
 let toIncrease = 42;
 for (let i = 1; i < itemButtonsAlts.length; i++) {
@@ -39,128 +36,83 @@ if (sessionStorage.getObj('favitems') == null) sessionStorage.setObj('favitems',
 headerFavCount.innerHTML = sessionStorage.getObj('favitems').length;
 headerCartCount.innerText = sessionStorage.getObj('cartitems').length;
 
-elemindexes = [];
+const removeLeadingDotSlash = (str) => Array.isArray(str) ? str : str.replace(/^\.\//, '');
 
-for (let i = 0; i < categoryFields.length; i++) {
+function addButtonColorsLoad() {
+    for (let i = 0; i < categoryFields.length; i++) {
+        const itemImgNode = categoryFields[i].parentNode.children[0].getAttribute('src');
+        const itemImgSource = removeLeadingDotSlash(itemImgNode);
+        let elemindex = imageSources.indexOf(itemImgSource);
+        const itemFavButton = categoryFields[i].parentNode.children[1].children[0].children[0].children.item(0);
+        const itemCartButton = categoryFields[i].parentNode.children[1].children[1].children[0].children.item(0);
 
-    let itemsImgSources = categoryFields[i].parentNode.children[0].getAttribute("src");
-    if (itemsImgSources.substr(0, 2) == "./") itemsImgSources = itemsImgSources.slice(2);
-    let j = categoryFields[i].parentNode.children[1].children[1].children[0].children.item(0).getAttribute("src");
-    if (j.substr(0, 2) == "./") j = j.slice(2);
-    let elemindex = imageSources.indexOf(itemsImgSources);
-    elemindexes.push(elemindex);
-    for (let elem = 0; elem < elemindexes.length; elem++) {
-
-        var itemsFavButtons = categoryFields[elem].parentNode.children[1].children[0].children[0].children.item(0);
-        var itemsCartButtons = categoryFields[elem].parentNode.children[1].children[1].children[0].children.item(0);
-        if (sessionStorage.getObj('favitems').length != 0 && sessionStorage.getObj('favitems').includes(elemindexes[elem])) {
-            itemsFavButtons.setAttribute("src", "static/images/item_favorite_active.png");
-        } else if (sessionStorage.getObj('favitems').length != 0 && (sessionStorage.getObj('favitems').includes(elemindexes[elem]) == false)) {
-            itemsFavButtons.setAttribute("src", "static/images/item_favorite.png");
+        if (sessionStorage.getObj('favitems').length !== 0) {
+            const attr = sessionStorage.getObj('favitems')?.includes(elemindex) ? '_active' : '';
+            itemFavButton.setAttribute('src', `static/images/item_favorite${attr}.png`);
         }
 
-        if (sessionStorage.getObj('favitems').length == 0) categoryFields[i].parentNode.children[1].children[0].children[0].children.item(0).setAttribute("src", "static/images/item_favorite.png");
-
-        if (sessionStorage.getObj('cartitems').length != 0 && sessionStorage.getObj('cartitems').includes(elemindexes[elem])) {
-
-            //let itemsCartButtons = categoryFields[elem].parentNode.children[1].children[1].children[0].children.item(0);
-            itemsCartButtons.setAttribute("src", "static/images/item_cart_active.png");
-            //change color for those indexes
-        } else if (sessionStorage.getObj('cartitems').length != 0 && (sessionStorage.getObj('cartitems').includes(elemindexes[elem]) == false)) {
-            ////if item was removed on cart on different page remove it on this page
-            itemsCartButtons.setAttribute("src", "static/images/item_cart.png");
+        if (sessionStorage.getObj('cartitems').length !== 0) {
+            const attr = sessionStorage.getObj('cartitems')?.includes(elemindex) ? '_active' : '';
+            itemCartButton.setAttribute('src', `static/images/item_cart${attr}.png`);
         }
-
-        if (sessionStorage.getObj('cartitems').length == 0) categoryFields[i].parentNode.children[1].children[1].children[0].children.item(0).setAttribute("src", "static/images/item_cart.png");
-
     }
-
-    categoryFields[i].addEventListener("click", event => {
-
-        if (event.target && event.target.matches(".favorite_img1")) {
-
-            var j3 = 0;
-            if (event.target.getAttribute("src") == "static/images/item_favorite.png") {
-                event.target.setAttribute("src", "static/images/item_favorite_active.png");
-                j3 = 1;
-                headerFavCount.innerText = (parseInt(headerFavCount.innerText) + 1).toString();
-                let targetimagesrc = event.target.parentNode.parentNode.parentNode.parentNode.getElementsByTagName("img")[0].getAttribute("src");
-                //if attribute src is "./static..." it will turn it to "static..." in order to match what is in the items
-                if (targetimagesrc.substr(0, 2) == "./") targetimagesrc = targetimagesrc.slice(2);
-                let elementindex = imageSources.indexOf(targetimagesrc);
-                if (!(sessionStorage.getObj('favitems').includes(elementindex))) {
-
-                    let k = sessionStorage.getObj('favitems');
-                    k.push(elementindex);
-                    sessionStorage.setObj('favitems', k);
-                    headerFavCount.innerHTML = sessionStorage.getObj('favitems').length;
-
-                }
-
-            }
-            //now it will not jump without need to this part before next click
-
-            if (event.target.getAttribute("src") == "static/images/item_favorite_active.png" && j3 == 0) {
-
-                event.target.setAttribute("src", "static/images/item_favorite.png");
-                headerFavCount.innerText = (parseInt(headerFavCount.innerText) - 1).toString();
-                let targetimagesrc = event.target.parentNode.parentNode.parentNode.parentNode.getElementsByTagName("img")[0].getAttribute("src");
-                //if attribute src is "./static..." it will turn it to "static..." in order to match what is in the items
-                if (targetimagesrc.substr(0, 2) == "./") targetimagesrc = targetimagesrc.slice(2);
-                let elementindex = imageSources.indexOf(targetimagesrc);
-                let k = sessionStorage.getObj('favitems');
-                k = k.filter(e => e !== elementindex);
-                sessionStorage.setObj('favitems', k);
-                headerFavCount.innerHTML = sessionStorage.getObj('favitems').length;
-
-            }
-
-        }
-
-        if (event.target && event.target.matches(".favorite_img2")) {
-
-            var j1 = 0;
-                //this variable is needed so that image does not immediately jump to the next event.target
-
-            if (event.target.getAttribute("src") == "static/images/item_cart.png") {
-
-                event.target.setAttribute("src", "static/images/item_cart_active.png");
-                j1 = 1;
-                headerCartCount.innerText = (parseInt(headerCartCount.innerText) + 1).toString();
-                let targetimagesrc = event.target.parentNode.parentNode.parentNode.parentNode.getElementsByTagName("img")[0].getAttribute("src");
-                //if attribute src is "./static..." it will turn it to "static..." in order to match what is in the items
-                if (targetimagesrc.substr(0, 2) == "./") targetimagesrc = targetimagesrc.slice(2);
-                let elementindex = imageSources.indexOf(targetimagesrc);
-                if (!(sessionStorage.getObj('cartitems').includes(elementindex))) {
-
-                    let k = sessionStorage.getObj('cartitems');
-                    k.push(elementindex);
-                    sessionStorage.setObj('cartitems', k);
-                    headerCartCount.innerHTML = sessionStorage.getObj('cartitems').length;
-
-                }
-                //sessionStorage.setObj('cartitems', cartitems);
-
-            }
-            //now it will not jump without need to this part before next click
-
-            if ((event.target.getAttribute("src") == "static/images/item_cart_active.png") && j1 == 0) {
-
-                event.target.setAttribute("src", "static/images/item_cart.png");
-                headerCartCount.innerText = (parseInt(headerCartCount.innerText) - 1).toString();
-                let targetimagesrc = event.target.parentNode.parentNode.parentNode.parentNode.getElementsByTagName("img")[0].getAttribute("src");
-                //if attribute src is "./static..." it will turn it to "static..." in order to match what is in the items
-                if (targetimagesrc.substr(0, 2) == "./") targetimagesrc = targetimagesrc.slice(2);
-                let elementindex = imageSources.indexOf(targetimagesrc);
-                let k = sessionStorage.getObj('cartitems');
-                k = k.filter(e => e !== elementindex);
-                sessionStorage.setObj('cartitems', k);
-                headerCartCount.innerHTML = sessionStorage.getObj('cartitems').length;
-
-            }
-
-        }
-
-    })
-
 }
+
+function addButtonClickListeners() {
+  for (let i = 0; i < categoryFields.length; i++) {
+    categoryFields[i].addEventListener('click', (event) => {
+      if (event.target && event.target.matches('.fav-item-button__img')) {
+        const itemFavButton = event.target;
+        const isItemFavorite = itemFavButton.getAttribute('src').split('/').pop() === 'item_favorite.png';
+        const targetImageNode = itemFavButton.parentNode.parentNode.parentNode.parentNode.getElementsByTagName('img')[0].getAttribute('src');
+        const targetImageSrc = removeLeadingDotSlash(targetImageNode);
+        const elementIndex = imageSources.indexOf(targetImageSrc);
+        const favItems = sessionStorage.getObj('favitems') || [];
+
+        if (isItemFavorite) {
+          itemFavButton.setAttribute('src', 'static/images/item_favorite_active.png');
+          headerFavCount.innerText = (parseInt(headerFavCount.innerText) + 1).toString();
+          if (!favItems.includes(elementIndex)) {
+            favItems.push(elementIndex);
+            sessionStorage.setObj('favitems', favItems);
+            headerFavCount.innerHTML = favItems.length;
+          }
+        } else {
+          itemFavButton.setAttribute('src', 'static/images/item_favorite.png');
+          headerFavCount.innerText = (parseInt(headerFavCount.innerText) - 1).toString();
+          const filteredFavItems = favItems.filter((e) => e !== elementIndex);
+          sessionStorage.setObj('favitems', filteredFavItems);
+          headerFavCount.innerHTML = filteredFavItems.length;
+        }
+      }
+
+      if (event.target && event.target.matches('.cart-item-button__img')) {
+        const itemCartButton = event.target;
+        const isItemCart = itemCartButton.getAttribute('src').split('/').pop() === 'item_cart.png';
+        const targetImageNode = itemCartButton.parentNode.parentNode.parentNode.parentNode.getElementsByTagName('img')[0].getAttribute('src');
+        const targetImageSrc = removeLeadingDotSlash(targetImageNode);
+        const elementIndex = imageSources.indexOf(targetImageSrc);
+        let cartItems = sessionStorage.getObj('cartitems') || [];
+
+        if (isItemCart) {
+          itemCartButton.setAttribute('src', 'static/images/item_cart_active.png');
+          headerCartCount.innerText = (parseInt(headerCartCount.innerText) + 1).toString();
+          if (!cartItems.includes(elementIndex)) {
+            cartItems.push(elementIndex);
+            sessionStorage.setObj('cartitems', cartItems);
+            headerCartCount.innerHTML = cartItems.length;
+          }
+        } else {
+          itemCartButton.setAttribute('src', 'static/images/item_cart.png');
+          headerCartCount.innerText = (parseInt(headerCartCount.innerText) - 1).toString();
+          const filteredCartItems = cartItems.filter((e) => e !== elementIndex);
+          sessionStorage.setObj('cartitems', filteredCartItems);
+          headerCartCount.innerHTML = filteredCartItems.length;
+        }
+      }
+    });
+  }
+}
+
+addButtonColorsLoad();
+addButtonClickListeners();

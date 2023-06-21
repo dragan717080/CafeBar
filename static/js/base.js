@@ -14,23 +14,23 @@ const [listOfTitles, listOfPricings, listOfImageSources] = items.reduce(
   [[], [], []]
 );
 
-for (let i = 0; i < listOfTitles.length; i++) searchContentItems.insertAdjacentHTML('beforeend', `<div class = 'search1'><div class = 'search11'>${listOfTitles[i]}</div></div>`)
+for (let i = 0; i < listOfTitles.length; i++) searchContentItems.insertAdjacentHTML('beforeend', `<div class = 'searchbar__row'><div class = 'searchbar__row__content'>${listOfTitles[i]}</div></div>`)
 
-const search1 = document.getElementsByClassName('search1');
-const search11 = document.getElementsByClassName('search11');
+const searchbar__row = document.getElementsByClassName('searchbar__row');
+const searchbar__row__content = document.getElementsByClassName('searchbar__row__content');
 const displayLimit = 7;
 
-for (let i = displayLimit; i < search11.length; i++) {
-  search11[i].style.display = 'none';
+for (let i = displayLimit; i < searchbar__row__content.length; i++) {
+  searchbar__row__content[i].style.display = 'none';
 }
 
-for (let i = 0; i < search1.length; i++) {
+for (let i = 0; i < searchbar__row.length; i++) {
   searchbarContent.addEventListener('focusin', event => {
-    search1[i].style.display = 'block';
+    searchbar__row[i].style.display = 'block';
     searchContentItems.nextElementSibling.style.marginTop = '-40px';
 
-    search11[i].addEventListener('click', event => {
-      searchbarContent.value = search11[i].innerText;
+    searchbar__row__content[i].addEventListener('click', event => {
+      searchbarContent.value = searchbar__row__content[i].innerText;
     });
   });
 }
@@ -42,7 +42,7 @@ function searchbar() {
   for (let i = 0; i < items.length; i++) {
     const searchContent = listOfTitles[i];
     const txtValue = searchContent.toUpperCase();
-    const item = search11[i];
+    const item = searchbar__row__content[i];
 
     if (txtValue.includes(filter)) {
       item.style.display = '';

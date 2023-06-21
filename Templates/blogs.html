@@ -2,25 +2,25 @@
 
 {% block head %}
 
-<link rel = "stylesheet" href = "static/css/blogs.css">
+<link rel = 'stylesheet' href = 'static/css/blogs.css'>
 
 {% endblock %}
 
 {% block body1 %}
 
 {% if loggedinuser %}
-<div class = "checkifloggeduser">
-    <div class = "checkifloggeduser1">
+<div class = 'checkifloggeduser'>
+    <div class = 'checkifloggeduser1'>
         {% if is_admin %}
-            <span class = "logged_in_name_admin">
+            <span class = 'logged_in_name_admin'>
         {{ loggedinuser }}
         </span>
         {% else %}
-            <span class = "logged_in_name">
+            <span class = 'logged_in_name'>
          {{ loggedinuser }}
             </span>
         {% endif %}
-        <a href = "/logout">Logout</a>
+        <a href = '/logout'>Logout</a>
     </div>
 </div>
 {% endif %}
@@ -29,34 +29,34 @@
 
 {% block body %}
 
-<div class = "allblogs">
-    <h1 style = "margin-left:24px">All Blogposts</h1>
-{% for blog in blogs %}
-    <div class = "oneblogpost">
-        <div class = "oneblogpost1">
-    <div class = "allblogs1">{{ blog.title }}&nbsp;\&nbsp;{{ blog.datetime }}</div>
-    <br>
-    <div class = "allblogs1">
-        By {{ author }}
-    </div>
-        <a href = "/blogs/delete/{{ blog.id }}">Delete</a>
-        <a href = "/edit/{{ blog.id }}">Edit</a>
+<div class = 'allblogs'>
+    <h1 style = 'margin-left:24px'>All Blogposts</h1>
+    {% for blog in blogs %}
+        <div class = 'oneblogpost'>
+            <div class = 'oneblogpost1'>
+        <div class = 'allblogs1'>{{ blog.title }}&nbsp;\&nbsp;{{ blog.created }}</div>
+        <br>
+        <div class = 'allblogs1'>
+            By {{ author }}
         </div>
-            <div class = "oneblogpost2">
-                <div class = "featuredblog">
-                    FEATURED
-                </div>
+            <a href = '/blogs/delete/{{ blog.id }}'>Delete</a>
+            <a href = '/edit/{{ blog.id }}'>Edit</a>
             </div>
-    </div>
-    <br>
-{% endfor %}
-<form action = "/blogs" method = "POST" style="margin-left:24px">
-    Title:<br><input type = "text" name = "title" id = "title">
-    <br>
-    Post:<br><textarea class = "content" name = "content" id = "content"></textarea><br>
-    <input type = "submit" value = "POST">
-</form>
+                <div class = 'oneblogpost2'>
+                    <div class = 'featuredblog'>
+                        FEATURED
+                    </div>
+                </div>
+        </div>
+        <br>
+    {% endfor %}
+    <form action = '/blogs' method = 'POST'>
+        Title:<br><input type = 'text' name = 'title' id = 'title'>
+        <br>
+        Post:<br><textarea class = 'content' name = 'content' id = 'content'></textarea><br>
+        <input type = 'submit' value = 'POST'>
+    </form>
 </div>
-<script type = "text/javascript" src = "static/js/blogs.js"></script>
+<script type = 'text/javascript' src = 'static/js/blogs.js'></script>
 
 {% endblock %}

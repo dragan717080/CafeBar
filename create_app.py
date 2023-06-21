@@ -15,8 +15,6 @@ def create_app():
     SESSION_TYPE = 'sqlalchemy'
     app.config.from_object(__name__)
 
-    app.config['CORS_HEADERS'] = 'Content-Type'
-
     login_manager = LoginManager()
     login_manager.init_app(app)
 

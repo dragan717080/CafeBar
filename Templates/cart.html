@@ -2,7 +2,7 @@
 
 {% block head %}
 
-<link rel = "stylesheet" href = "static/css/cart.css">
+<link rel = 'stylesheet' href = 'static/css/cart.css'>
 <script>
     var items = {{ items|tojson }}
 </script>
@@ -11,43 +11,40 @@
 
 {% block body1 %}
 
-        {% if loggedinuser %}
-<div class = "checkifloggeduser">
-    <div class = "checkifloggeduser1">
-            {% if is_admin %}
-                <span class = "logged_in_name_admin">
-            {{ loggedinuser }}
+{% if loggedinuser %}
+<div class = 'checkifloggeduser'>
+    <div class = 'checkifloggeduser1'>
+        {% if is_admin %}
+            <span class = 'logged_in_name_admin'>
+                {{ loggedinuser }}
+        </span>
+        {% else %}
+            <span class = 'logged_in_name'>
+                {{ loggedinuser }}
             </span>
-            {% else %}
-                <span class = "logged_in_name">
-             {{ loggedinuser }}
-                </span>
-            {% endif %}
-            <a href = "/logout">Logout</a>
+        {% endif %}
+        <a href = '/logout'>Logout</a>
     </div>
 </div>
-        {% endif %}
+{% endif %}
 
 {% endblock %}
 
 {% block body %}
 
-1
-<div class = "cart_1">
-    <form action = "/cart" method = "POST" class = "cart_Form" onsubmit = "validateCart()" >
-<div class = "cart1">
-
+<div>
+    <form action = '/cart' method = 'POST' onsubmit = "validateCart()" >
+        <div class = 'cart__row'></div>
+        <div class = 'cart_total'>
+            TOTAL: R$
+        </div>
+        {% if loggedinuser %}
+            <button class = 'cart-btn' name = 'submit' value = 'cart_submit'>BUY ALL!</button>
+        {% else %}
+            <div class = 'cartlogin'>You must be logged in to purchase</div>
+        {% endif %}
+    </form>
 </div>
-    <div class = "cart_total">
-        TOTAL: R$
-    </div>
-    {% if loggedinuser %}
-    <button class = "cartbutton" name = "submit" value = "b">BUY ALL!</button>
-    {% else %}
-        <div class = "cartlogin">You must be logged in to purchase</div>
-    {% endif %}
-</form>
-</div>
-<script src = "static/js/cart.js"></script>
+<script src = 'static/js/cart.js'></script>
 
 {% endblock %}

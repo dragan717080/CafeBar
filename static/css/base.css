@@ -7,8 +7,10 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
-row {
+.row {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header-menu {
@@ -33,6 +35,10 @@ row {
 
 .header-menu__item a:hover {
     color: #ffdb00;
+}
+
+.header-menu__additional a {
+    color: red !important;
 }
 
 .gold {
@@ -134,7 +140,7 @@ row {
     justify-content: center;
 }
 
-.searchbar_1 {
+.searchbar__wrapper {
     height: 120px;
     display: flex;
     align-items: center;
@@ -184,27 +190,27 @@ row {
     margin-inline: 10px;
 }
 
-.title_cafe_1 {
+.category-main-title {
     font-family: "Futura", sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.title_cafe_1 > * {
+.category-main-title > * {
     margin-inline: 10px;
 }
 
-.titlelines {
+.category-main-title__lines {
     min-width: 70px;
     border-bottom: 2px solid #000;
 }
 
-.search1 {
+.searchbar__row {
     display: none;
 }
 
-.search1 > * {
+.searchbar__row > * {
     margin-inline: 4px;
 }
 

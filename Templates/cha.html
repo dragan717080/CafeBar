@@ -5,8 +5,6 @@
 <link rel = "stylesheet" href = "static/css/cha.css">
 <script>
     var items = {{ items|tojson }}
-    console.log(items.map((item) => item.title));
-    console.log(items[5]);
 </script>
 
 {% endblock %}
@@ -18,11 +16,11 @@
     <div class = "checkifloggeduser1">
         {% if is_admin %}
             <span class = "logged_in_name_admin">
-        {{ loggedinuser }}
-        </span>
+                {{ loggedinuser }}
+            </span>
         {% else %}
             <span class = "logged_in_name">
-         {{ loggedinuser }}
+                {{ loggedinuser }}
             </span>
         {% endif %}
         <a href = "/logout">Logout</a>
@@ -37,211 +35,111 @@
 <div class = "teas__wrapper">
     <div class = "teas">
         <div class = "teas__row">
+            {% for i in range (11, 14) %}
             <div class = "teas__row__item">
-                <img src = "static/images/compre11.png">
+                <img src = "static/images/compre{{ i }}.png">
                 <div class = "item__buttons">
-                    <div class = "category_list_field1">
-                        <button class = "categoryfieldbutton1">
-                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
+                    <div class = "fav-item-button__wrapper">
+                        <button class = "fav-item-button">
+                            <img src = "./static/images/item_favorite.png" class = "fav-item-button__img">
                         </button>
                     </div>
-                    <div class = "category_list_field2">
-                        <button class = "categoryfieldbutton2">
-                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
+                    <div class = "cart-item-button__wrapper">
+                        <button class = "cart-item-button">
+                            <img src = "./static/images/item_cart.png" class = "cart-item-button__img">
                         </button>
                     </div>
                 </div>
             </div>
-            <div class = "teas__row__item">
-                <img src = "static/images/compre12.png">
-                <div class = "item__buttons">
-                    <div class = "category_list_field1">
-                        <button class = "categoryfieldbutton1">
-                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
-                        </button>
-                    </div>
-                    <div class = "category_list_field2">
-                        <button class = "categoryfieldbutton2">
-                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class = "teas__row__item">
-                <img src = "static/images/compre13.png">
-                <div class = "item__buttons">
-                    <div class = "category_list_field1">
-                        <button class = "categoryfieldbutton1">
-                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
-                        </button>
-                    </div>
-                    <div class = "category_list_field2">
-                        <button class = "categoryfieldbutton2">
-                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
-                        </button>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class = "category-titles">
-            <a href = "/5">
-            <div class = "category-title__item gold">
-                {{ items[5].title }}
-            </div>
-            </a>
-            <a href = "/6">
-            <div class = "category-title__item gold">
-                {{ items[6].title }}
-            </div>
-            </a>
-            <a href = "/7">
-            <div class = "category-title__item gold">
-                {{ items[7].title }}
-            </div>
-            </a>
+            {% for i in range(5, 8) %}
+                <a href = "/{{ i }}">
+                    <div class = "category-title__lg gold">
+                        {{ items[i].title }}
+                    </div>
+                </a>
+            {% endfor %}
         </div>
         <div class = "list-pricings">
-            <div class = "list-pricings__item">
-                {{ items[5].pricing }}
-            </div>
-            <div class = "list-pricings__item">
-                {{ items[6].pricing }}
-            </div>
-            <div class = "list-pricings__item">
-                {{ items[7].pricing }}
-            </div>
+            {% for i in range (5, 8) %}
+                <div class = "list-pricings__item">
+                    {{ items[i].pricing }}
+                </div>
+            {% endfor %}
         </div>
         <div class = "teas__row">
-            <div class = "teas__row__item">
-                <img src = "static/images/compre14.png">
-                <div class = "item__buttons">
-                    <div class = "category_list_field1">
-                        <button class = "categoryfieldbutton1">
-                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
-                        </button>
-                    </div>
-                    <div class = "category_list_field2">
-                        <button class = "categoryfieldbutton2">
-                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class = "teas__row__item">
-                <img src = "static/images/compre21.png">
-                <div class = "item__buttons">
-                    <div class = "category_list_field1">
-                        <button class = "categoryfieldbutton1">
-                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
-                        </button>
-                    </div>
-                    <div class = "category_list_field2">
-                        <button class = "categoryfieldbutton2">
-                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
-                        </button>
+            {% for i in [14, 21, 22] %}
+                <div class = "teas__row__item">
+                    <img src = "static/images/compre{{ i }}.png">
+                    <div class = "item__buttons">
+                        <div class = "fav-item-button__wrapper">
+                            <button class = "fav-item-button">
+                                <img src = "./static/images/item_favorite.png" class = "fav-item-button__img">
+                            </button>
+                        </div>
+                        <div class = "cart-item-button__wrapper">
+                            <button class = "cart-item-button">
+                                <img src = "./static/images/item_cart.png" class = "cart-item-button__img">
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class = "teas__row__item">
-                <img src = "static/images/compre22.png">
-                <div class = "item__buttons">
-                    <div class = "category_list_field1">
-                        <button class = "categoryfieldbutton1">
-                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
-                        </button>
-                    </div>
-                    <div class = "category_list_field2">
-                        <button class = "categoryfieldbutton2">
-                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
-                        </button>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class = "category-titles">
-            <a href = "/8">
-            <div class = "category-title__item gold">
-                {{ items[8].title }}
-            </div>
-            </a>
-            <a href = "/15">
-            <div class = "category-title__item gold">
-                {{ items[15].title }}
-            </div>
-            </a>
-            <a href = "/16">
-            <div class = "category-title__item gold">
-                {{ items[16].title }}
-            </div>
-            </a>
+            {% for i in [8, 15, 16] %}
+                <a href = "/{{ i }}">
+                    <div class = "category-title__lg gold">
+                        {{ items[i].title }}
+                    </div>
+                </a>
+            {% endfor %}
         </div>
         <div class = "list-pricings">
-            <div class = "list-pricings__item">
-                {{ items[8].pricing }}
-            </div>
-            <div class = "list-pricings__item">
-                {{ items[15].pricing }}
-            </div>
-            <div class = "list-pricings__item">
-                {{ items[16].pricing }}
-            </div>
+            {% for i in [8, 15, 16] %}
+                <div class = "list-pricings__item">
+                    {{ items[i].pricing }}
+                </div>
+            {% endfor %}
         </div>
         <div class = "teaitemsrow2">
-            <div class = "teas__row__item">
-                <img src = "static/images/compre23.png">
-                <div class = "item__buttons-alt">
-                    <div class = "category_list_field1">
-                        <button class = "categoryfieldbutton1">
-                        <img src = "./static/images/item_favorite.png" class = "favorite_img1">
-                        </button>
-                    </div>
-                    <div class = "category_list_field2">
-                        <button class = "categoryfieldbutton2">
-                            <img src = "./static/images/item_cart.png" class = "favorite_img2">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class = "teas__row__item">
-                <img src = "static/images/compre24.png">
-                <div class = "item__buttons-alt">
-                    <div class = "category_list_field1">
-                        <button class = "categoryfieldbutton1">
-                            <img src = "./static/images/item_favorite.png" class = "favorite_img1">
-                        </button>
-                    </div>
-                    <div class = "category_list_field2">
-                        <button class = "categoryfieldbutton2">
-                        <img src = "./static/images/item_cart.png" class = "favorite_img2">
-
-                        </button>
+            {% for i in range(23, 25) %}
+                <div class = "teas__row__item">
+                    <img src = "static/images/compre{{ i }}.png">
+                    <div class = "item__buttons-alt">
+                        <div class = "fav-item-button__wrapper">
+                            <button class = "fav-item-button">
+                            <img src = "./static/images/item_favorite.png" class = "fav-item-button__img">
+                            </button>
+                        </div>
+                        <div class = "cart-item-button__wrapper">
+                            <button class = "cart-item-button">
+                                <img src = "./static/images/item_cart.png" class = "cart-item-button__img">
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
         <div class = "category__title2">
-            <a href = "/17">
-                <div class = "row">
-                    <div class = "category__title_2 gold mw-300">
-                        {{ items[17].title }}
+            {% for i in range (17, 19) %}
+                <a href = "/{{ i }}">
+                    <div class = "row">
+                        <div class = "category__row__titles__5 gold mw-300">
+                            {{ items[i].title }}
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href = "/18">
-                <div class = "row">
-                    <div class = "category__title_2 gold mw-300">
-                        {{ items[18].title }}
-                    </div>
-                </div>
-            </a>
+                </a>
+            {% endfor %}
         </div>
         <div class = "category_list_pricing2">
-            <div class = "category_list_price_2">
-                {{ items[17].pricing }}
-            </div>
-            <div class = "category_list_price_2">
-                {{ items[18].pricing }}
-            </div>
+            {% for i in range (17, 19) %}
+                <div class = "category_list_price_2">
+                    {{ items[i].pricing }}
+                </div>
+            {% endfor %}
         </div>
     </div>
 </div>

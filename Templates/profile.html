@@ -5,25 +5,25 @@
 <script>
     var items = {{ items|tojson }}
 </script>
-<link rel = "stylesheet" href = "static/css/profile.css">
+<link rel = 'stylesheet' href = 'static/css/profile.css'>
 
 {% endblock %}
 
 {% block body1 %}
 
 {% if loggedinuser %}
-<div class = "checkifloggeduser">
-    <div class = "checkifloggeduser1">
+<div class = 'checkifloggeduser'>
+    <div class = 'checkifloggeduser1'>
         {% if is_admin %}
-            <span class = "logged_in_name_admin">
+            <span class = 'logged_in_name_admin'>
         {{ loggedinuser }}
         </span>
         {% else %}
-            <span class = "logged_in_name">
+            <span class = 'logged_in_name'>
          {{ loggedinuser }}
             </span>
         {% endif %}
-        <a href = "/logout">Logout</a>
+        <a href = '/logout'>Logout</a>
     </div>
 </div>
 {% endif %}
@@ -32,8 +32,8 @@
 
 {% block body %}
 
-<div class = "profile1">
-    <div class = "profile11">
+<div class = 'profile1'>
+    <div class = 'profile11'>
         {{ loggedinuser }}
         <br>
         Member since {{ profilecreated }}
