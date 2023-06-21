@@ -16,7 +16,6 @@ def set_config(app_dict, env):
         'SQLALCHEMY_BINDS': {table: f'{BASE_DB}{table}.db' for table in tables},
         'TEMPLATES_AUTO_RELOAD': True,
         'CACHE_TYPE': 'redis',
-        'DEFAULT_AVATAR': r"C:\Users\dESKTOP I5\PycharmProjects\UrbeCafeBar\static\images\login-icon.jpg",
         'CORS_HEADERS': 'Content-Type'
     }
     print(config_dict['SQLALCHEMY_BINDS'])
