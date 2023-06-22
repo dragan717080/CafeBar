@@ -5,7 +5,6 @@
 <link rel = "stylesheet" href = "static/css/item.css">
 <script>
     var items = {{ items|tojson }}
-    var item1 = {{ item1|tojson }}
 </script>
 
 {% endblock %}
@@ -33,11 +32,11 @@
 
 {% block body %}
 
-<div class = "item1">
+<div id="item">
 
-    <div class = "iteminfo">{{ item1 }}</div>
+    <div class = "iteminfo">{{ title }}</div>
     <div class = "itemsrow11">
-        <img src = "{{ item4 }}">
+        <img src = "{{ imagesource }}">
         <div class = "item__buttons">
             <div class = "fav-item-button__wrapper">
                 <button class = "fav-item-button">
@@ -53,7 +52,7 @@
     </div>
     <div class = "list-pricings">
         <div class = "list-pricings__item">
-            {{ item3 }}
+            {{ pricing }}
         </div>
     </div>
 

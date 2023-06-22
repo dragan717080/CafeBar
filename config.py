@@ -11,14 +11,13 @@ def set_config(app_dict, env):
     #setting app.config
     config_dict = {
         'SECRET_KEY': 'secretkey1',
-        'SQLALCHEMY_DATABASE_URI': 'sqlite:///database/users.db',
+        'SQLALCHEMY_DATABASE_URI': f'{BASE_DB}users.db',
         'SQLALCHEMY_TRACK_MODIFICATIONS': False,
         'SQLALCHEMY_BINDS': {table: f'{BASE_DB}{table}.db' for table in tables},
         'TEMPLATES_AUTO_RELOAD': True,
         'CACHE_TYPE': 'redis',
         'CORS_HEADERS': 'Content-Type'
     }
-    print(config_dict['SQLALCHEMY_BINDS'])
 
     app_dict.update(config_dict)
 

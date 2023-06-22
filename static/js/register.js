@@ -1,7 +1,7 @@
 function validateRegister(e) {
   const emailInput = document.getElementById('email');
-  const usernameInput = document.getElementById('username_11');
-  const password1Input = document.getElementById('password_11');
+  const usernameInput = document.getElementById('username');
+  const password1Input = document.getElementById('password');
   const password2Input = document.getElementById('password_12');
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

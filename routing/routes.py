@@ -10,38 +10,32 @@ index_pages = Blueprint('index', __name__,
 @index_pages.route('/', methods=['POST'])
 def index_post():
     if request.form['submit'] == 'LOGIN':
-        su1 = request.form['username']
-        sp1 = request.form['password']
-        check_login = User.query.filter_by(username=su1).first()
+        username = request.form['username']
+        password = request.form['password']
+        check_login = User.query.filter_by(username=username).first()
 
         if check_login is None and current_user.is_anonymous:
             return redirect('/')
 
-        passwords_match = check_login.password == sp1
+        passwords_match = check_login.password == password
         if check_login:
+            new_blogs = Blog.query.limit(3).all()
             if not passwords_match:
-                new_blogs = []
-                for i in range(min(3, len(Blog.query.all()))):
-                    new_blogs.append(Blog.query.all()[i])
-
                 return render_template('index.html', new_blogs=new_blogs, items=items)
             else:
                 login_user(check_login)
                 session['username'] = current_user.username
-                new_blogs = []
-                for blog in Blog.query.all()[:3]:
-                    new_blogs.append([blog.title.capitalize(), blog.content.capitalize(), blog.author])
-
+                new_blogs = Blog.query.limit(3).all()
+                new_blogs = [[blog.title.capitalize(), blog.content.capitalize(), blog.author] for blog in new_blogs]
                 return render_template('index.html', loggedinuser=current_user.username, new_blogs=new_blogs, is_admin=current_user.is_admin, items=items)
 
         return redirect('/')
     else:
-        # posting via searchbar
         return Utils.post_with_searchbar()
-
 
 @index_pages.route('/')
 def index():
+
     new_blogs = [[blog.title.capitalize(), blog.content.capitalize(), blog.author] for blog in
         Blog.query.all()[:3]]
 
@@ -53,18 +47,17 @@ def index():
 
 @index_pages.route('/<int:id>')
 def get_item(id):
+
     item_data = items[id]
-    item1 = item_data['title']
-    item2 = id
-    item3 = item_data['pricing']
-    item4 = item_data['imagesource']
+    title = item_data['title']
+    pricing = item_data['pricing']
+    imagesource = item_data['imagesource']
 
     template_args = {
         'items': items,
-        'item1': item1,
-        'item2': item2,
-        'item3': item3,
-        'item4': item4
+        'title': title,
+        'pricing': pricing,
+        'imagesource': imagesource
     }
 
     if current_user.is_anonymous:
@@ -80,4 +73,5 @@ def get_item(id):
 
 @index_pages.route('/<int:id>', methods=['POST'])
 def post_item(id):
+    
     return Utils.post_with_searchbar()

@@ -14,7 +14,7 @@ def aprendamais_post():
 @aprendamais_pages.route('/aprendamais')
 def aprendamais():
 
-    new_blogs = [[blog.title.capitalize(), blog.content.capitalize(), blog.author] for blog in Blog.query.all()[:3]]
+    new_blogs = [[blog.title.capitalize(), blog.content.capitalize(), blog.author] for blog in Blog.query.limit(3).all()]
 
     template_args = {
         'new_blogs': new_blogs,

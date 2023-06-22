@@ -10,8 +10,8 @@ register_pages = Blueprint('register', __name__,
 def register_post():
 
     email = request.form['email']
-    username = request.form['username_11']
-    password = request.form['password_11']
+    username = request.form['username']
+    password = request.form['password']
     user_data = {
         'email': email,
         'username': username,
