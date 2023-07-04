@@ -8,12 +8,11 @@ cafes_pages = Blueprint('cafes', __name__,
 
 @cafes_pages.route("/cafes", methods = ["POST"])
 def cafes_post():
-
     return Utils.post_with_searchbar()
 
 @cafes_pages.route("/cafes")
 def cafes():
-
     if current_user.is_anonymous:
         return render_template("cafes.html", items = items)
+
     return render_template("cafes.html", loggedinuser=current_user.username, is_admin = current_user.is_admin, items = items)

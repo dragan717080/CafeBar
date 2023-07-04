@@ -44,7 +44,7 @@ function addButtonColorsLoad() {
 
         if (sessionStorage.getObj('favitems').length !== 0) {
             const attr = sessionStorage.getObj('favitems')?.includes(elemindex) ? '_active' : '';
-            itemFavButton.setAttribute('src', `static/images/item_favorite${attr}.png`);
+            itemFavButton.setAttribute('src', `static/images/item_fav${attr}.png`);
         }
 
         if (sessionStorage.getObj('cartitems').length !== 0) {
@@ -59,14 +59,14 @@ function addButtonClickListeners() {
     categoryFields[i].addEventListener('click', (event) => {
       if (event.target && event.target.matches('.fav-item-button__img')) {
         const itemFavButton = event.target;
-        const isItemFavorite = itemFavButton.getAttribute('src').split('/').pop() === 'item_favorite.png';
+        const isItemFavorite = itemFavButton.getAttribute('src').split('/').pop() === 'item_fav.png';
         const targetImageNode = itemFavButton.parentNode.parentNode.parentNode.parentNode.getElementsByTagName('img')[0].getAttribute('src');
         const targetImageSrc = removeLeadingDotSlash(targetImageNode);
         const elementIndex = imageSources.indexOf(targetImageSrc);
         const favItems = sessionStorage.getObj('favitems') || [];
 
         if (isItemFavorite) {
-          itemFavButton.setAttribute('src', 'static/images/item_favorite_active.png');
+          itemFavButton.setAttribute('src', 'static/images/item_fav_active.png');
           headerFavCount.innerText = (parseInt(headerFavCount.innerText) + 1).toString();
           if (!favItems.includes(elementIndex)) {
             favItems.push(elementIndex);
@@ -74,7 +74,7 @@ function addButtonClickListeners() {
             headerFavCount.innerHTML = favItems.length;
           }
         } else {
-          itemFavButton.setAttribute('src', 'static/images/item_favorite.png');
+          itemFavButton.setAttribute('src', 'static/images/item_fav.png');
           headerFavCount.innerText = (parseInt(headerFavCount.innerText) - 1).toString();
           const filteredFavItems = favItems.filter((e) => e !== elementIndex);
           sessionStorage.setObj('favitems', filteredFavItems);

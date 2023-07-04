@@ -8,8 +8,7 @@ favorite_items_pages = Blueprint('favorites', __name__,
 
 @favorite_items_pages.route("/fav", methods = ["POST"])
 def favorite_items_post():
-
-        return Utils.post_with_searchbar()
+    return Utils.post_with_searchbar()
 
 @favorite_items_pages.route("/fav")
 

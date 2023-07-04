@@ -72,16 +72,13 @@
                     </div>
                 </div>
                 <div class = 'item__buttons'>
-                    <div class = 'fav-item-button__wrapper'>
-                        <button class = 'fav-item-button'>
-                            <img src = './static/images/item_favorite.png' class = 'fav-item-button__img'>
+                    {% for item in ['fav', 'cart'] %}
+                    <div class = '{{ item }}-item-button__wrapper'>
+                        <button class = '{{ item }}-item-button'>
+                            <img src = './static/images/item_{{ item }}.png' class = '{{ item }}-item-button__img'>
                         </button>
                     </div>
-                    <div class = 'cart-item-button__wrapper'>
-                        <button class = 'cart-item-button'>
-                            <img src = './static/images/item_cart.png' class = 'cart-item-button__img'>
-                        </button>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

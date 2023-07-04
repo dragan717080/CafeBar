@@ -8,12 +8,10 @@ emporio_pages = Blueprint('emporio', __name__,
 
 @emporio_pages.route('/emporio', methods = ['POST'])
 def emporio_post():
-
     return Utils.post_with_searchbar()
 
 @emporio_pages.route('/emporio')
 def emporio():
-
     if current_user.is_anonymous:
         return render_template('emporio.html', items = items)
     

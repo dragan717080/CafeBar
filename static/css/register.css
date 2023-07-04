@@ -3,12 +3,12 @@
     background-color: #CCE6FF;
 }
 
-.register1 {
+.register__header {
     height: 10.625rem;
     background-color: #CCE6FF;
 }
 
-.register_board {
+.register__board {
     margin-inline: 19.375rem;
     padding: 1.875rem;
     background-color: #fff;

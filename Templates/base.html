@@ -2,11 +2,12 @@
 <html lang='en'>
 <head>
 <meta charset='UTF-8'>
-    {% block head %}
+{% block head %}
 
-    {% endblock %}
+{% endblock %}
 <link rel = 'stylesheet' href = './static/css/base.css'>
-<link rel='shortcut icon' href='#'>
+<link rel='logoicon.png' sizes='76x76' href="{{ url_for('static', filename='/images/logoicon.png') }}">
+<link rel='shortcut icon' href="{{ url_for('static', filename='/images/logoicon.png') }}" type='image/x-icon'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 <link rel='preconnect' href='https://fonts.googleapis.com'>
 <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
@@ -57,20 +58,15 @@
             <div class = 'header-menu__profile'></div>
             </a>
             {% endif %}
-            <a href = '/fav'>
-                <div class = 'header-menu__fav'>
-                    <div class = 'header-menu__fav-count'>
+            {% for item in ['fav', 'cart'] %}
+            <a href = '/{{ item }}'>
+                <div class = 'header-menu__{{ item }}'>
+                    <div class = 'header-menu__{{ item }}-count'>
                         0
                     </div>
                 </div>
             </a>
-            <a href = '/cart'>
-                <div class = 'header-menu__cart'>
-                    <div class = 'header-menu__cart-count'>
-                        0
-                    </div>
-                </div>
-            </a>
+            {% endfor %}
         </div>
     </div>
     <br>
@@ -97,21 +93,21 @@
 
     {% endblock %}
 
-<div class = 'footermenu'>
-    <div class = 'footermenu_1'>
+<div class = 'footer-menu'>
+    <div class = 'footer-menu__row'>
         Copyright © 2021 <span>URBE CAFÉ</span> Todos direitos reservados.
     </div>
-    <div class = 'footermenu_1'>
-        <div class = 'footermenu_1_1'>
+    <div class = 'footer-menu__row'>
+        <div class = 'footer-menu__row__item'>
             Política de frete
         </div>
-        <div class = 'footermenu_1_1'>
+        <div class = 'footer-menu__row__item'>
             Política de compras
         </div>
-        <div class = 'footermenu_1_1'>
+        <div class = 'footer-menu__row__item'>
             Política de devolução
         </div>
-        <div class = 'footermenu_1_1'>
+        <div class = 'footer-menu__row__item'>
             Política de privacidade
         </div>
     </div>

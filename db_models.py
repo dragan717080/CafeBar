@@ -1,6 +1,6 @@
-from flask_login import UserMixin
 from datetime import datetime
-from config import db
+from config.config import db
+from flask_login import UserMixin
 
 class BaseModel(db.Model):
     __abstract__ = True
@@ -14,15 +14,24 @@ class BaseModel(db.Model):
 
     @classmethod
     def find_all(cls):
-        search_matches = []
-        for item in cls.query.all():
-            d = cls.remove_excluded_keys(item)
-            search_matches.append(d)
+        return [cls.remove_excluded_keys(item) for item in cls.query.all()]
 
-        return search_matches
+    @classmethod
+    def find(cls, **kwargs):
+        return cls.query.filter_by(**kwargs).first()
 
     def save(self):
         db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def delete_all(cls):
+        db.session.query(cls).delete()
+        db.session.commit()
+
+    @classmethod
+    def delete_one(cls, **kwargs):
+        cls.query.filter_by(**kwargs).delete()
         db.session.commit()
 
     def __repr__(self):
@@ -34,16 +43,6 @@ class User(BaseModel, UserMixin):
     password = db.Column(db.String(100), nullable=False)
     is_admin = db.Column(db.Boolean, default = False)
     excluded_keys = BaseModel.excluded_keys + ['password']
-
-    @staticmethod
-    def find_all_filter(username):
-        search_matches = db.session.query(User).filter_by(username = username).all()
-        return search_matches if len(search_matches) > 0 else None
-
-    @staticmethod
-    def delete_all():
-        db.session.query(User).delete()
-        db.session.commit()
 
     def __repr__(self):
         return f'{self.__class__.__name__} {self.id}'

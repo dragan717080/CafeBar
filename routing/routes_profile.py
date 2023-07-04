@@ -9,13 +9,11 @@ profile_pages = Blueprint('profile', __name__,
 @profile_pages.route('/profile', methods = ['POST'])
 @login_required
 def profile_post():
-
     return Utils.post_with_searchbar()
 
 @profile_pages.route('/profile')
 @login_required
 def profile():
-
     user_data = {
         'loggedinuser': current_user.username,
         'profilecreated': current_user.created_at.strftime('%Y %m %d'),

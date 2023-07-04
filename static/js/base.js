@@ -65,7 +65,7 @@ function validateForm1() {
 }
 
 function adjustFooterMenuMargin(className, offset) {
-  const footerMenu = document.getElementsByClassName('footermenu')[0];
+  const footerMenu = document.getElementsByClassName('footer-menu')[0];
   const numberElement = document.getElementsByClassName(className)[0];
   const number = parseInt(numberElement.innerText);
   footerMenu.style.marginTop = (offset - number * 117) + 'px';

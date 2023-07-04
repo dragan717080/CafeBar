@@ -2,22 +2,22 @@
 
 {% block head %}
 
-<link rel = "stylesheet" href = "../static/css/base.css">
-<link rel = "stylesheet" href = "../static/css/edit.css">
+<link rel = 'stylesheet' href = '../static/css/base.css'>
+<link rel = 'stylesheet' href = '../static/css/edit.css'>
 
 {% endblock %}
 
 {% block body %}
-<div class = "edit1">
+<div class = 'edit1'>
 <h1>Editing Post</h1>
     <hr>
     <h2>Edit:</h2>
     <form action='/edit/{{blog.id}}' method='POST'>
-        <label for="title">Title:</label>
-        <input class="form-control" type="text" name='title' id='title' value="{{ blog.title }}" aria-label="Enter Title">
+        <label for='title'>Title:</label>
+        <input class='form-control' type='text' name='title' id='title' value='{{ blog.title }}' aria-label='Enter Title'>
         <br>
-        <label for="content">Post:</label>
-        <textarea class="form-control" name='content' id="content" aria-label="Enter Content" rows="3" style = "width:240px">{{ blog.content }}</textarea>
+        <label for='content'>Post:</label>
+        <textarea class='form-control' name='content' id='content' aria-label='Enter Content' rows='3' style = 'width:240px'>{{ blog.content }}</textarea>
         <br>
         <input type='submit' value='Save'>
     </form>

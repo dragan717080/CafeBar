@@ -13,8 +13,8 @@ def cart_post():
 
 @cart_pages.route('/cart')
 def cart():
-
     if current_user.is_anonymous:
         return render_template('cart.html', items = items)
+
     loggedinuser = current_user.username
     return render_template('cart.html', loggedinuser=loggedinuser, is_admin = current_user.is_admin, items = items)

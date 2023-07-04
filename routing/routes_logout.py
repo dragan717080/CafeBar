@@ -8,7 +8,6 @@ logout_pages = Blueprint('logout', __name__,
 @logout_pages.route('/logout')
 @login_required
 def logout():
-
     user = current_user.username
     logout_user()
     return render_template('logout.html', currentuser=user, items=items)

@@ -8,7 +8,6 @@ register_pages = Blueprint('register', __name__,
 
 @register_pages.route('/register', methods = ['POST'])
 def register_post():
-
     email = request.form['email']
     username = request.form['username']
     password = request.form['password']
@@ -27,5 +26,4 @@ def register_post():
 
 @register_pages.route('/register')
 def register():
-
     return render_template('register.html', items=items)

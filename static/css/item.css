@@ -4,7 +4,7 @@
     justify-content: center;
 }
 
-.footermenu {
+.footer-menu {
     margin-top: 4.1875rem;
 }
 
@@ -93,4 +93,8 @@
     color: #fff;
     display: flex;
     transform: translateY(12.4375rem);
+}
+
+#item {
+    margin-top:2.5625rem;
 }

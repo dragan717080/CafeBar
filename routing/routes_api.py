@@ -7,12 +7,10 @@ api_pages = Blueprint('api', __name__,
 #so far just simple get operations, will refactor sometime in future
 @api_pages.route('/users')
 def get_all_users():
-
     return jsonify(User.find_all())
 
 @api_pages.route('/users/<int:user_id>')
 def get_user(user_id):
-
     user = User.query.get(user_id)
     if user is None:
         return jsonify({'error': 'User not found'}), 404
@@ -21,5 +19,4 @@ def get_user(user_id):
 
 @api_pages.route('/blogs')
 def get_all_blogs():
-
     return jsonify(Blog.find_all())

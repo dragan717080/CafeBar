@@ -13,15 +13,12 @@ def aprendamais_post():
 
 @aprendamais_pages.route('/aprendamais')
 def aprendamais():
-
     new_blogs = [[blog.title.capitalize(), blog.content.capitalize(), blog.author] for blog in Blog.query.limit(3).all()]
-
     template_args = {
         'new_blogs': new_blogs,
         'items': items,
         'metodos': metodos
     }
-
     if current_user.is_anonymous:
         return render_template('aprendamais.html', **template_args)
 

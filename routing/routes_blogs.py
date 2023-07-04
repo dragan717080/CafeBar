@@ -8,7 +8,6 @@ blogs_pages = Blueprint('blogs', __name__,
 
 @blogs_pages.route('/blogs', methods=['POST'])
 def blogs_post():
-
     blog_title = request.form['title']
     blog_content = request.form['content']
     blog_author = current_user.username
@@ -29,7 +28,6 @@ def blogs_post():
 
 @blogs_pages.route('/blogs')
 def blogs():
-
     all_blogs = Blog.query.order_by(Blog.created_at).all()
     all_blogs.reverse()
     loggedinuser = current_user.username
@@ -37,18 +35,16 @@ def blogs():
 
 @blogs_pages.route('/blogs/delete/<int:id>')
 def delete(id):
-
     blog = Blog.query.get_or_404(id)
     db.session.delete(blog)
     db.session.commit()
+
     return redirect('/blogs')
 
 @blogs_pages.route('/edit/<int:id>', methods = ['GET', 'POST'])
 def edit(id):
-
     blog = Blog.query.get_or_404(id)
     if request.method == 'POST':
-
         blog.title = request.form['title']
         blog.content = request.form['content']
         blog.author = current_user.username

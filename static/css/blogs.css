@@ -4,7 +4,7 @@
     margin-bottom: 3.6875rem;
 }
 
-.allblogs form {
+.allblogs form, .allblogs h1 {
     margin-left:24px;
 }
 

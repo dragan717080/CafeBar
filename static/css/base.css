@@ -56,11 +56,9 @@ body {
 .header-menu__logo {
     height: 54px;
     width: 100px;
-    margin-left: 40px;
-    margin-right: 370px;
-    background-image: url(../images/logo.png);
+    margin: -12px 370px 0 40px;
+    background-image: url(../images/logoicon.png);
     background-size: cover;
-    margin-top: -12px;
 }
 
 .header__buttons {
@@ -167,26 +165,26 @@ body {
     padding-inline: 4px;
 }
 
-.footermenu {
+.footer-menu {
     height: 100px;
     padding-top: 40px;
     background-color: #000;
     color: #fff;
 }
 
-.footermenu_1 {
+.footer-menu__row {
     margin-top: 4px;
     margin-bottom: 12px;
     display: flex;
     justify-content: center;
 }
 
-.footermenu_1 span {
+.footer-menu__row span {
     color: #ffdb00;
     margin-inline: 4px;
 }
 
-.footermenu_1_1 {
+.footer-menu__row_1 {
     margin-inline: 10px;
 }
 
