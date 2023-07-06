@@ -44,9 +44,6 @@ class User(BaseModel, UserMixin):
     is_admin = db.Column(db.Boolean, default = False)
     excluded_keys = BaseModel.excluded_keys + ['password']
 
-    def __repr__(self):
-        return f'{self.__class__.__name__} {self.id}'
-
 class Blog(BaseModel, UserMixin):
     __bind_key__ = 'blogs'
     title = db.Column(db.String(100), nullable=False)

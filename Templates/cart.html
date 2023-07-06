@@ -35,7 +35,7 @@
 <div>
     <form action = '/cart' method = 'POST' onsubmit = "validateCart()" >
         <div class = 'cart__row'></div>
-        <div class = 'cart_total'>
+        <div id = 'cart_total'>
             TOTAL: R$
         </div>
         {% if loggedinuser %}

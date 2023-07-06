@@ -45,7 +45,7 @@
     padding-top: 2.5rem;
 }
 
-.cart_total {
+#cart_total {
     display: flex;
     justify-content: center;
     margin-top: 0.625rem;
@@ -55,7 +55,7 @@
     min-width: 73.75rem;
 }
 
-.cart_total a {
+#cart_total a {
     text-decoration: none;
     color: #b8784e;
     margin-left: 0.4375rem;

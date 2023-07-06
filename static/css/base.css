@@ -79,14 +79,14 @@ body {
     background-size: cover;
 }
 
-.header-menu__fav {
+#header-menu__fav {
     height: 30px;
     width: 30px;
     background-image: url(../images/favorite.png);
     background-size: cover;
 }
 
-.header-menu__fav-count {
+#header-menu__fav-count {
     height: 19px;
     width: 14px;
     padding-left: 4px;
@@ -97,14 +97,14 @@ body {
     transform: translate(23px, -4px);
 }
 
-.header-menu__cart {
+#header-menu__cart {
     height: 30px;
     width: 30px;
     background-image: url(../images/cart.png);
     background-size: cover;
 }
 
-.header-menu__cart-count {
+#header-menu__cart-count {
     height: 19px;
     width: 14px;
     padding: 0 0 4px 4px;

@@ -1,10 +1,10 @@
 const cart__row = document.getElementsByClassName('cart__row')[0];
 const cart11 = document.getElementsByClassName('cart11');
 const cart14 = document.getElementsByClassName('cart14');
-const cartTotal = document.getElementsByClassName('cart_total')[0];
+const cartTotal = document.getElementById('cart_total');
 const cartButton = document.getElementsByClassName('cart-btn')[0];
-const headerFavCount = document.getElementsByClassName('header-menu__fav-count')[0];
-const headerCartCount = document.getElementsByClassName('header-menu__cart-count')[0];
+const headerFavCount = document.getElementById ('header-menu__fav-count');
+const headerCartCount = document.getElementById ('header-menu__cart-count');
 
 Storage.prototype.setObj = function(key, obj) {
     return this.setItem(key, JSON.stringify(obj))

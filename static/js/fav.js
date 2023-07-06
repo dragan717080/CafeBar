@@ -1,6 +1,6 @@
 const favElement = document.getElementsByClassName('favs__row')[0];
-const headerMenuFavCount = document.getElementsByClassName('header-menu__fav-count')[0];
-const headerMenuCartCount = document.getElementsByClassName('header-menu__cart-count')[0];
+const headerMenuFavCount = document.getElementById ('header-menu__fav-count');
+const headerMenuCartCount = document.getElementById ('header-menu__cart-count');
 
 Storage.prototype.setObj = function(key, obj) {
   return this.setItem(key, JSON.stringify(obj));
