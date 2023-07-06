@@ -7,7 +7,6 @@ class Utils(object):
 
     @staticmethod
     def post_with_searchbar():
-
         redirect_url = None
         for i in range(2, 5):
             session[f'searchbar_{i}_content'] = request.form[f'searchbar_{i}_content']
@@ -17,14 +16,12 @@ class Utils(object):
 
     @staticmethod
     def read_from_json(file_name):
-
         with open(file_name, 'r', encoding='utf8') as file:
             data = json.load(file)
             return data
 
     @staticmethod
     def make_lowercase_plural(word):
-
         word = word.lower()
         if word.endswith('y'):
             return word[:-1] + 'ies'
@@ -35,7 +32,6 @@ class Utils(object):
 
     @staticmethod
     def delete_keys_from_dict(dictionary, keys_to_delete):
-
         for key in keys_to_delete:
             dictionary.pop(key, None)
 

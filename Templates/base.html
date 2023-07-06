@@ -56,9 +56,14 @@
     </div>
 </div>
 <br>
-{% block body1 %}
-
-{% endblock %}
+<div class="checkifloggeduser">
+    <div class="checkifloggeduser1">
+        <span class="{% if is_admin %}logged_in_name_admin{% else %}logged_in_name{% endif %}">
+            {{ loggedinuser }}
+        </span>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
 <div class='titlecafe'>
     SEU CAFÉ COM ORIGEM
 </div>

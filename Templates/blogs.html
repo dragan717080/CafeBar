@@ -6,27 +6,6 @@
 
 {% endblock %}
 
-{% block body1 %}
-
-{% if loggedinuser %}
-<div class = 'checkifloggeduser'>
-    <div class = 'checkifloggeduser1'>
-        {% if is_admin %}
-            <span class = 'logged_in_name_admin'>
-        {{ loggedinuser }}
-        </span>
-        {% else %}
-            <span class = 'logged_in_name'>
-         {{ loggedinuser }}
-            </span>
-        {% endif %}
-        <a href = '/logout'>Logout</a>
-    </div>
-</div>
-{% endif %}
-
-{% endblock %}
-
 {% block body %}
 
 <div class = 'allblogs'>

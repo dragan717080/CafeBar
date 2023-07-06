@@ -9,21 +9,6 @@
 
 {% endblock %}
 
-{% block body1 %}
-
-{% if loggedinuser %}
-<div class="checkifloggeduser">
-    <div class="checkifloggeduser1">
-        <span class="{% if is_admin %}logged_in_name_admin{% else %}logged_in_name{% endif %}">
-            {{ loggedinuser }}
-        </span>
-        <a href="/logout">Logout</a>
-    </div>
-</div>
-{% endif %}
-
-{% endblock %}
-
 {% block body %}
 
 <div class="row">

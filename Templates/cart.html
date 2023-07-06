@@ -9,35 +9,12 @@
 
 {% endblock %}
 
-{% block body1 %}
-
-{% if loggedinuser %}
-<div class = 'checkifloggeduser'>
-    <div class = 'checkifloggeduser1'>
-        {% if is_admin %}
-            <span class = 'logged_in_name_admin'>
-                {{ loggedinuser }}
-        </span>
-        {% else %}
-            <span class = 'logged_in_name'>
-                {{ loggedinuser }}
-            </span>
-        {% endif %}
-        <a href = '/logout'>Logout</a>
-    </div>
-</div>
-{% endif %}
-
-{% endblock %}
-
 {% block body %}
 
 <div id = 'cart'>
     <form action = '/cart' method = 'POST' onsubmit = "validateCart()" >
         <div class = 'cart__row'></div>
-        <div id = 'cart_total'>
-            TOTAL: R$
-        </div>
+        <div id = 'cart_total'>TOTAL: R$</div>
         {% if loggedinuser %}
             <button class = 'cart-btn' name = 'submit' value = 'cart_submit'>BUY ALL!</button>
         {% else %}

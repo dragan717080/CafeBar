@@ -109,6 +109,7 @@
 
 .fav-item-button__wrapper {
     width: 4.5rem;
+    margin-right: 12px;
 }
 
 .fav-item-button__wrapper img {

@@ -9,45 +9,20 @@
 
 {% endblock %}
 
-{% block body1 %}
-
-{% if loggedinuser %}
-<div class = 'checkifloggeduser'>
-    <div class = 'checkifloggeduser1'>
-        {% if is_admin %}
-            <span class = 'logged_in_name_admin'>
-        {{ loggedinuser }}
-        </span>
-        {% else %}
-            <span class = 'logged_in_name'>
-         {{ loggedinuser }}
-            </span>
-        {% endif %}
-        <a href = '/logout'>Logout</a>
-    </div>
-</div>
-{% endif %}
-
-{% endblock %}
-
 {% block body %}
 
 <div id='item'>
-
     <div class = 'iteminfo'>{{ title }}</div>
     <div class = 'itemsrow11'>
         <img src = '{{ imagesource }}'>
         <div class = 'item__buttons'>
-            <div class = 'fav-item-button__wrapper'>
-                <button class = 'fav-item-button'>
-                    <img src = './static/images/item_fav.png' class = 'fav-item-button__img'>
-                </button>
-            </div>
-            <div class = 'cart-item-button__wrapper'>
-                <button class = 'cart-item-button'>
-                    <img src = './static/images/item_cart.png' class = 'cart-item-button__img'>
-                </button>
-            </div>
+        {% for button in ['fav', 'cart'] %}
+        <div class='{{ button }}-item-button__wrapper'>
+            <button class='{{ button }}-item-button'>
+                <img src='./static/images/item_{{ button }}.png' class='{{ button }}-item-button__img'>
+            </button>
+        </div>
+        {% endfor %}
         </div>
     </div>
     <div class = 'list-pricings'>

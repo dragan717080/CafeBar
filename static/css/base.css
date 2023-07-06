@@ -229,12 +229,13 @@ body {
 }
 
 .checkifloggeduser {
+    height: 24px;
     width: 100vw;
     display: flex;
     justify-content: right;
     background-color: #fff;
-    height: 24px;
-    transform: translateY(24px);
+    margin: 24px 0;
+    padding-top: 3px;
     position: fixed;
 }
 
