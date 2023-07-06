@@ -1,14 +1,15 @@
-.register {
+#register {
     height: 51.875rem;
+    width: 100vw;
     background-color: #CCE6FF;
 }
 
-.register__header {
+#register__header {
     height: 10.625rem;
     background-color: #CCE6FF;
 }
 
-.register__board {
+#register__board {
     margin-inline: 19.375rem;
     padding: 1.875rem;
     background-color: #fff;
@@ -26,4 +27,16 @@
     background-color: #005bff;
     color: #fff;
     transform: translate(0.625rem, 0.875rem);
+}
+
+#title {
+    color: #005bff;
+    padding-bottom: 19px;
+    font-size: 19px;
+    text-align: center;
+}
+
+a {
+    color: #005bff;
+    text-decoration: none;
 }

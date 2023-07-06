@@ -12,18 +12,12 @@
 {% block body1 %}
 
 {% if loggedinuser %}
-<div class='checkifloggeduser'>
-    <div class='checkifloggeduser1'>
-        {% if is_admin %}
-        <span class='logged_in_name_admin'>
-                {{ loggedinuser }}
-            </span>
-        {% else %}
-        <span class='logged_in_name'>
-                {{ loggedinuser }}
-            </span>
-        {% endif %}
-        <a href='/logout'>Logout</a>
+<div class="checkifloggeduser">
+    <div class="checkifloggeduser1">
+        <span class="{% if is_admin %}logged_in_name_admin{% else %}logged_in_name{% endif %}">
+            {{ loggedinuser }}
+        </span>
+        <a href="/logout">Logout</a>
     </div>
 </div>
 {% endif %}
@@ -62,6 +56,34 @@
                 </div>
                 {% endfor %}
             </div>
+            {% if not loggedinuser %}
+            <div id='login'>
+                <div class='login__header'>
+                    Login or Register
+                </div>
+                <form action='/' method='POST'>
+                    <div class='login__inputs'>
+                        <span>Username</span>
+                        <input class='login__input' type='text' name='username'>
+                        <span>Password</span>
+                        <input class='login__input' type='password' name='password'>
+                    </div>
+                    <br>
+                    <div class='login-button__wrapper'>
+                        <input id='login-button' type='submit' value='LOGIN' name='submit'>
+                    </div>
+                </form>
+                <div class='login__reset-password'>
+                    Forgot your password?
+                </div>
+                <div id='login__register-link'>
+                    <a href='/register'>Register</a>
+                </div>
+                <div id='login__terms'>
+                    Terms and Conditions
+                </div>
+            </div>
+            {% endif %}
         </div>
         <div class='category-main-title__wrapper'>
             <div class='category-main-title'>

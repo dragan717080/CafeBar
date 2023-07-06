@@ -6,7 +6,7 @@ from db_models import User
 from base64 import b64encode
 
 def create_app():
-    app = Flask(__name__, template_folder='templates', static_folder='static')
+    app = Flask(__name__, template_folder='Templates', static_folder='static')
 
     set_config(app.config, app.jinja_env)
 

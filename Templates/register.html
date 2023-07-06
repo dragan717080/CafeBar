@@ -1,52 +1,46 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <link rel='stylesheet' href='static/css/register.css'>
-    <script>
-        var items = {{ items|tojson }}
-    </script>
+<link rel='stylesheet' href='static/css/register.css'>
+<script>
+    var allUsers = {{ all_users|tojson }}
+</script>
 {% endblock %}
 
 {% block body %}
-    <div class='register'>
-        <div class='register__header'></div>
-        <div class='register__board'>
-            <span>Sign up</span><br>
-            <span>Personal Details</span>
-            <form action='/register' method='POST' onsubmit='return validateRegister(event)'>
-                <div class='register__field'>
-                    <div class='register__field__title'>Email</div>
-                    <div class='register__field__value'>
-                        <input name='email' class='form2input' id='email'>
+<div id='register'>
+    <div id='register__header'></div>
+    <div id='register__board'>
+        <div id="title">Sign up</div>
+        <form action='/register' method='POST' onsubmit='return validateRegister(event)'>
+            <div class='input__wrapper'>
+                <img src="{{ url_for('static', filename = '/assets/icons/email.jpg') }}">
+                <input id='email' type='text' name='email' placeholder='Email'>
+            </div>
+            <div class='input__wrapper'>
+                <img src="{{ url_for('static', filename = '/assets/icons/login.jpg') }}">
+                <input id='username' type='text' name='username' placeholder='Username'>
+            </div>
+            <div class='input__wrapper'>
+                <img src="{{ url_for('static', filename = '/assets/icons/password.jpg') }}">
+                <input id='password1' type='password' name='password' placeholder='Password'>
+            </div>
+            <div class='input__wrapper'>
+                <img src="{{ url_for('static', filename = '/assets/icons/password.jpg') }}">
+                <input id='password2' type='password' placeholder='Confirm password'>
+            </div>
+            <div class="row">
+                <div>
+                    <div id='have-account'>
+                        Already have an account? <a href='/login'>Log in</a>
+                    </div>
+                    <div class="row">
+                        <input type='submit' class='submit-btn' name='submit' value='Submit'>
                     </div>
                 </div>
-                <div class='register__field'>
-                    <div class='register__field__title'>
-                        Username
-                    </div>
-                    <div class='register__field__value'>
-                        <input name='username' class='form2input' id='username'>
-                    </div>
-                </div>
-                <div class='register__field'>
-                    <div class='register__field__value'>
-                        Password
-                    </div>
-                    <div class='register__field__title'>
-                        <input name='password' class='form2input' id='password' type='password'>
-                    </div>
-                </div>
-                <div class='register__field'>
-                    <div class='register__field__value'>
-                        Confirm Password
-                    </div>
-                    <div class='register__field__title'>
-                        <input name='password-confirm' class='form2input' id='password-confirm' type='password'>
-                    </div>
-                </div>
-                <input type='submit' id='register-btn' name='submit' value='Submit'>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
-    <script type='text/javascript' src='static/js/register.js'></script>
+</div>
+<script type='text/javascript' src='static/js/register.js'></script>
 {% endblock %}

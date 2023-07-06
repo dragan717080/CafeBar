@@ -12,8 +12,7 @@ def index_post():
     if request.form['submit'] == 'LOGIN':
         username = request.form['username']
         password = request.form['password']
-        check_login = User.query.filter_by(username=username).first()
-
+        check_login = User.find(username=username)
         if check_login is None and current_user.is_anonymous:
             return redirect('/')
 
@@ -35,9 +34,9 @@ def index_post():
 
 @index_pages.route('/')
 def index():
-
     new_blogs = [[blog.title.capitalize(), blog.content.capitalize(), blog.author] for blog in
         Blog.query.all()[:3]]
+    print(User.find(username='bearbot').password)
 
     if current_user.is_anonymous:
         return render_template('index.html', new_blogs=new_blogs, items=items)
@@ -47,7 +46,6 @@ def index():
 
 @index_pages.route('/<int:id>')
 def get_item(id):
-
     item_data = items[id]
     title = item_data['title']
     pricing = item_data['pricing']
@@ -59,7 +57,6 @@ def get_item(id):
         'pricing': pricing,
         'imagesource': imagesource
     }
-
     if current_user.is_anonymous:
         return render_template('item.html', **template_args)
 
@@ -67,7 +64,6 @@ def get_item(id):
         'loggedinuser': current_user.username,
         'is_admin': current_user.is_admin
     })
-
     return render_template('item.html', **template_args)
 
 
