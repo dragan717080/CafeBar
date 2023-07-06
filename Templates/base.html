@@ -98,18 +98,11 @@
         Copyright © 2021 <span>URBE CAFÉ</span> Todos direitos reservados.
     </div>
     <div class = 'footer-menu__row'>
-        <div class = 'footer-menu__row__item'>
-            Política de frete
-        </div>
-        <div class = 'footer-menu__row__item'>
-            Política de compras
-        </div>
-        <div class = 'footer-menu__row__item'>
-            Política de devolução
-        </div>
-        <div class = 'footer-menu__row__item'>
-            Política de privacidade
-        </div>
+        {% for item in ['Política de frete', 'Política de compras', 'Política de devolução', 'Política de privacidade'] %}
+            <div class="footer-menu__row__item">
+                {{ item }}
+            </div>
+        {% endfor %}
     </div>
 </div>
 

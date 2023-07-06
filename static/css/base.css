@@ -181,10 +181,10 @@ body {
 
 .footer-menu__row span {
     color: #ffdb00;
-    margin-inline: 4px;
+    margin-inline: 7px;
 }
 
-.footer-menu__row_1 {
+.footer-menu__row__item {
     margin-inline: 10px;
 }
 
