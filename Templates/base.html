@@ -56,6 +56,7 @@
     </div>
 </div>
 <br>
+{% if loggedinuser %}
 <div class="checkifloggeduser">
     <div class="checkifloggeduser1">
         <span class="{% if is_admin %}logged_in_name_admin{% else %}logged_in_name{% endif %}">
@@ -64,6 +65,7 @@
         <a href="/logout">Logout</a>
     </div>
 </div>
+{% endif %}
 <div class='titlecafe'>
     SEU CAFÉ COM ORIGEM
 </div>
