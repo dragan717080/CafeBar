@@ -15,7 +15,7 @@ body {
 
 .header-menu {
     height: 70px;
-    width: 1903px;
+    width: 100vw;
     display: flex;
     position: fixed;
     background-color: #fff;
@@ -27,6 +27,7 @@ body {
 }
 
 .header-menu__item {
+    min-width: fit-content;
     margin-inline: 14px;
     font-weight: 400;
     font-size: 14px;
@@ -57,7 +58,7 @@ body {
     height: 54px;
     width: 100px;
     margin: -12px 370px 0 40px;
-    background-image: url(../images/logoicon.png);
+    background-image: url(../images/logo.png);
     background-size: cover;
 }
 
@@ -167,6 +168,7 @@ body {
 
 .footer-menu {
     height: 100px;
+    width: 100vw;
     padding-top: 40px;
     background-color: #000;
     color: #fff;
@@ -202,6 +204,11 @@ body {
 .category-main-title__lines {
     min-width: 70px;
     border-bottom: 2px solid #000;
+}
+
+.category-list-img {
+    height: 210px;
+    width: 210px;
 }
 
 .searchbar__row {
@@ -247,6 +254,14 @@ body {
 .search_content_items {
     margin-left: 40%;
     transform: translate(80px, -34px);
+}
+
+.u {
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 700px) {
+
 }
 
 body::-webkit-scrollbar {

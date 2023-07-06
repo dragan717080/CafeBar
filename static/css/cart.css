@@ -1,3 +1,7 @@
+#cart {
+    min-height: 32rem;
+}
+
 .cart__row {
     width: 118.9375rem;
     min-width: 73.75rem;

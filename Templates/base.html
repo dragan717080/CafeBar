@@ -5,63 +5,65 @@
 {% block head %}
 
 {% endblock %}
-<link rel = 'stylesheet' href = './static/css/base.css'>
-<link rel='logoicon.png' sizes='76x76' href="{{ url_for('static', filename='/images/logoicon.png') }}">
-<link rel='shortcut icon' href="{{ url_for('static', filename='/images/logoicon.png') }}" type='image/x-icon'>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel='stylesheet' href='./static/css/base.css'>
+<link rel='logoicon.ico' sizes='76x76' href="{{ url_for('static', filename='/images/logoicon.ico') }}">
+<link rel='shortcut icon' href="{{ url_for('static', filename='/images/logoicon.ico') }}" type='image/x-icon'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 <link rel='preconnect' href='https://fonts.googleapis.com'>
 <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
 <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap' rel='stylesheet'>
 </head>
 <body>
-    <div class = 'header-menu'>
-        <a href = '/'>
-            <div class = 'header-menu__logo'></div>
+    <div class='header-menu'>
+        <a href='/'>
+            <div class='header-menu__logo'></div>
         </a>
         <nav>
-            <div class = 'header-menu__item gold'>
-                <a href = '/cafes'>
+            <div class='header-menu__item gold'>
+                <a href='/cafes'>
                     COMPRE CAFÉS
                 </a>
             </div>
-            <div class = 'header-menu__item gold'>
-                <a href = '/cha'>
+            <div class='header-menu__item gold'>
+                <a href='/cha'>
                     CHÁ
                 </a>
             </div>
-            <div class = 'header-menu__item gold'>
-                <a href = '/emporio'>
+            <div class='header-menu__item gold'>
+                <a href='/emporio'>
                     EMPÓRIO
                 </a>
             </div>
-            <div class = 'header-menu__item gold'>
-                <a href = '/aprendamais'>
+            <div class='header-menu__item gold'>
+                <a href='/aprendamais'>
                 APRENDA MAIS
                 </a>
             </div>
             {% if is_admin %}
-            <div class = 'header-menu__item header-menu__additional gold'>
-                <a href = '/blogs'>
+            <div class='header-menu__item header-menu__additional gold'>
+                <a href='/blogs'>
                     BLOGS
                 </a>
             </div>
-            <div class = 'header-menu__item header-menu__additional gold'>
-                <a href = '/api/users'>
+            <div class='header-menu__item header-menu__additional gold'>
+                <a href='/api/users'>
                     USERS
                 </a>
             </div>
             {% endif %}
         </nav>
-        <div class = 'header__buttons'>
+        <div class='header__buttons'>
             {% if loggedinuser %}
-            <a href = '/profile'>
-            <div class = 'header-menu__profile'></div>
+            <a href='/profile'>
+            <div class='header-menu__profile'></div>
             </a>
             {% endif %}
             {% for item in ['fav', 'cart'] %}
-            <a href = '/{{ item }}'>
-                <div id = 'header-menu__{{ item }}'>
-                    <div id = 'header-menu__{{ item }}-count'>
+            <a href='/{{ item }}'>
+                <div id='header-menu__{{ item }}'>
+                    <div id='header-menu__{{ item }}-count'>
                         0
                     </div>
                 </div>
@@ -73,31 +75,31 @@
     {% block body1 %}
 
     {% endblock %}
-    <div class = 'titlecafe'>
+    <div class='titlecafe'>
         SEU CAFÉ COM ORIGEM
     </div>
-    <div class = 'searchbar__wrapper'>
-        <form method = 'POST' onsubmit = 'return validateForm1()'>
-            <input onkeyup = 'searchbar()' class = 'searchbar_content' name = 'searchbar_content'>
-            <input type = 'hidden' class = 'searchbar_2_content' name = 'searchbar_2_content'>
-            <input type = 'hidden' class = 'searchbar_3_content' name = 'searchbar_3_content'>
-            <input type = 'hidden' class = 'searchbar_4_content' name = 'searchbar_4_content'>
-            <button type = 'submit' class = 'searchbar__button' value = 'submit' name = 'submit'>
-                <img src = './static/images/cafe_search_enlarger.png'>
+    <div class='searchbar__wrapper'>
+        <form method='POST' onsubmit='return validateForm1()'>
+            <input onkeyup='searchbar()' class='searchbar_content' name='searchbar_content'>
+            <input type='hidden' class='searchbar_2_content' name='searchbar_2_content'>
+            <input type='hidden' class='searchbar_3_content' name='searchbar_3_content'>
+            <input type='hidden' class='searchbar_4_content' name='searchbar_4_content'>
+            <button type='submit' class='searchbar__button' value='submit' name='submit'>
+                <img src='./static/images/cafe_search_enlarger.png'>
             </button>
         </form>
     </div>
-    <div class = 'search_content_items'></div>
+    <div class='search_content_items'></div>
 
     {% block body %}
 
     {% endblock %}
 
-<div class = 'footer-menu'>
-    <div class = 'footer-menu__row'>
+<div class='footer-menu'>
+    <div class='footer-menu__row'>
         Copyright © 2021 <span>URBE CAFÉ</span> Todos direitos reservados.
     </div>
-    <div class = 'footer-menu__row'>
+    <div class='footer-menu__row'>
         {% for item in ['Política de frete', 'Política de compras', 'Política de devolução', 'Política de privacidade'] %}
             <div class="footer-menu__row__item">
                 {{ item }}
@@ -106,6 +108,6 @@
     </div>
 </div>
 
-<script type = 'text/javascript' src = './static/js/base.js'></script>
+<script type='text/javascript' src='./static/js/base.js'></script>
 </body>
 </html>

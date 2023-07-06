@@ -2,7 +2,7 @@
 
 {% block head %}
 
-<link rel = 'stylesheet' href = './static/css/index.css'>
+<link rel='stylesheet' href='./static/css/index.css'>
 <script>
     var items = {{ items|tojson }}
 </script>
@@ -12,18 +12,18 @@
 {% block body1 %}
 
 {% if loggedinuser %}
-<div class = 'checkifloggeduser'>
-    <div class = 'checkifloggeduser1'>
+<div class='checkifloggeduser'>
+    <div class='checkifloggeduser1'>
         {% if is_admin %}
-            <span class = 'logged_in_name_admin'>
+        <span class='logged_in_name_admin'>
                 {{ loggedinuser }}
             </span>
         {% else %}
-            <span class = 'logged_in_name'>
+        <span class='logged_in_name'>
                 {{ loggedinuser }}
             </span>
         {% endif %}
-        <a href = '/logout'>Logout</a>
+        <a href='/logout'>Logout</a>
     </div>
 </div>
 {% endif %}
@@ -32,219 +32,155 @@
 
 {% block body %}
 
-<div class = 'index'>
-    <div class = 'category-main-title__wrapper'>
-        <div class = 'category-main-title'>
-            <div class = 'category-main-title__lines'></div>
-            <div class = 'category-main-title__title'>COMPRE POR CATEGORIA</div>
-            <div class = 'category-main-title__lines'></div>
-        </div>
-    </div>
-    <div class = 'categories-list-and-login'>
-        <div class = 'category-list__row' id = 'category-list-main'>
-            <div class = 'category-list__row__item'>
-                <img src = './static/images/compre1.png'>
-            </div>
-            <div class = 'category-list__row__item'>
-                <img src = './static/images/compre2.png'>
-            </div>
-            <div class = 'category-list__row__item'>
-                <img src = './static/images/compre3.png'>
-            </div>
-            <div class = 'category-list__row__item'>
-                <img src = './static/images/compre4.png'>
-            </div>
-            <div class = 'category-list__row__item'>
-                <img src = './static/images/compre5.png'>
+<div class="row">
+    <div class='index'>
+        <div class='category-main-title__wrapper'>
+            <div class='category-main-title'>
+                <div class='category-main-title__lines'></div>
+                <div class='category-main-title__title'>COMPRE POR CATEGORIA</div>
+                <div class='category-main-title__lines'></div>
             </div>
         </div>
-        {% if not loggedinuser %}
-            <div id = 'login'>
-                 <div class = 'login__header'>
-                     Login or Register
-                 </div>
-                 <form action = '/' method = 'POST' >
-                     <div class = 'login__inputs'>
-                         <span>Username</span>
-                         <input class = 'login__input' type = 'text' name = 'username'>
-                            <span>Password</span>
-                         <input class = 'login__input' type = 'password' name = 'password'>
-                     </div>
-                     <br>
-                     <div class = 'login-button__wrapper'>
-                         <input id = 'login-button' type='submit' value = 'LOGIN' name = 'submit'>
-                     </div>
-                 </form>
-                 <div class = 'login__reset-password'>
-                     Forgot your password?
-                 </div>
-                 <div id = 'login__register-link'>
-                     <a href = '/register'>Register</a>
-                 </div>
-                 <div id = 'login__terms'>
-                     Terms and Conditions
-                 </div>
-             </div>
-        {% endif %}
-    </div>
-    <div class = 'category-titles' id='category-titles-main'>
-        <div class = 'category-title__lg gold'>
-            Cafés Especiais
-        </div>
-        <div class = 'category-title__lg gold'>
-            Cápsulas de cafés
-        </div>
-        <div class = 'category-title__lg gold'>
-            Chás Especiais
-        </div>
-        <div class = 'category-title__lg gold'>
-            Cafeteiras
-        </div>
-        <div class = 'category-title__lg gold'>
-            Utensílios
-        </div>
-    </div>
-    <div class = 'category-subtitles' id = 'category-subtitles-main'>
-        <div class = 'category-subtitles__item'>
-            Torrados semanalmente.
-        </div>
-        <div class = 'category-subtitles__item'>
-            Aroma e sabor diferenciados
-        </div>
-        <div class = 'category-subtitles__item'>
-            Ervas finas e aromáticas
-        </div>
-        <div class = 'category-subtitles__item'>
-            Para o cantinho do Café
-        </div>
-        <div class = 'category-subtitles__item'>
-            Complementos essenciais
-        </div>
-    </div>
-    <div class = 'category-main-title__wrapper'>
-        <div class = 'category-main-title'>
-            <div class = 'category-main-title__lines'></div>
-            <div class = 'category-main-title__title'>NOSSOS CAFÉS</div>
-            <div class = 'category-main-title__lines'></div>
-        </div>
-    </div>
-    <div class = 'category-subtitle'>
-        Cafés especiais torrados semanalmente
-    </div>
-    <div class = 'category-list__row'>
-    {% for i in range (5) %}
-        <div class = 'category-list__row__item'>
-            <img src = './static/images/compre{{ i+6 }}.png' class = 'coffeeimages'>
-            <div class = 'item__buttons'>
-                <div class = 'fav-item-button__wrapper'>
-                    <button class = 'fav-item-button'>
-                        <img src = './static/images/item_fav.png' class = 'fav-item-button__img'>
-                    </button>
+        <div class='categories-list-and-login'>
+            {% set categories = [
+            {'title': 'Cafés Especiais', 'subtitle': 'Torrados semanalmente'},
+            {'title': 'Cápsulas de cafés', 'subtitle': 'Aroma e sabor diferenciados'},
+            {'title': 'Chás Especiais', 'subtitle': 'Ervas finas e aromáticas'},
+            {'title': 'Cafeteiras', 'subtitle': 'Para o cantinho do Café'},
+            {'title': 'Utensílios', 'subtitle': 'Complementos essenciais'},
+            ] %}
+            <div class="category-list">
+                {% for item in categories %}
+                <div class="item">
+                    <img src="./static/images/compre{{ loop.index }}.png">
+                    <div class="category-title__lg gold">
+                        {{ item.title }}
+                    </div>
+                    <div class="category-subtitles__item">
+                        {{ item.subtitle }}
+                    </div>
                 </div>
-                <div class = 'cart-item-button__wrapper'>
-                    <button class = 'cart-item-button'>
-                        <img src = './static/images/item_cart.png' class = 'cart-item-button__img'>
-                    </button>
-                </div>
+                {% endfor %}
             </div>
         </div>
-    {% endfor %}
-    </div>
-    <div class = 'category-titles'>
-    {% for i in range (5) %}
-        <a href = '/{{ i }}'>
-        <div class = 'category__row__titles__5 gold'>
-            {{ items[i]['title'] }}
+        <div class='category-main-title__wrapper'>
+            <div class='category-main-title'>
+                <div class='category-main-title__lines'></div>
+                <div class='category-main-title__title'>NOSSOS CAFÉS</div>
+                <div class='category-main-title__lines'></div>
+            </div>
         </div>
-        </a>
-    {% endfor %}
-    </div>
-    <div class = 'list-pricings'>
-    {% for i in range (5) %}
-        <div class = 'list-pricings__item'>
-            {{ items[i]['pricing'] }}
+        <div class='category-subtitle'>
+            Cafés especiais torrados semanalmente
         </div>
-    {% endfor %}
-    </div>
-    <div class = 'category-main-title__wrapper'>
-        <div class = 'category-main-title'>
-            <div class = 'category-main-title__lines'></div>
-            <div class = 'category-main-title__title'>NOSSOS CHÁS</div>
-            <div class = 'category-main-title__lines'></div>
-        </div>
-    </div>
-    <div class = 'category-subtitle'>
-        Experimente nossos chás especiais
-    </div>
-    <div class = 'category-list-alt'>
-        {% for i in range (4) %}
-            <div class = 'category-list-2__item'>
-                <img src = './static/images/compre{{ i+11 }}.png' class = 'coffeeimages'>
-                <div class = 'item__buttons-alt'>
-                    <div class = 'fav-item-button__wrapper'>
-                        <button class = 'fav-item-button'>
-                            <img src = './static/images/item_fav.png' class = 'fav-item-button__img'>
+        <div class="category-list" id="items-list">
+            {% set items_temp = [
+            {'title': '01', 'pricing': '33,00'},
+            {'title': '02', 'pricing': '27,00'},
+            {'title': '03', 'pricing': '42,00'},
+            {'title': '04', 'pricing': '64,00'},
+            {'title': 'Vinil', 'pricing': '22,50'}
+            ] %}
+            {% for item in items_temp %}
+            <div class="item">
+                <img src="./static/images/compre{{ loop.index + 5 }}.png" alt="Urbe Cafe {{ item.title }}"
+                     class="category-list-img">
+                <div class='item__buttons'>
+                    <div class='fav-item-button__wrapper'>
+                        <button class='fav-item-button'>
+                            <img src='./static/images/item_fav.png' class='fav-item-button__img'>
                         </button>
                     </div>
-                    <div class = 'cart-item-button__wrapper'>
-                        <button class = 'cart-item-button'>
-                            <img src = './static/images/item_cart.png' class = 'cart-item-button__img'>
+                    <div class='cart-item-button__wrapper'>
+                        <button class='cart-item-button'>
+                            <img src='./static/images/item_cart.png' class='cart-item-button__img'>
                         </button>
                     </div>
                 </div>
+                <a href='/{{ i }}'>
+                    <div class='item-title gold'>Urbe Cafe {{ item.title }}</div>
+                </a>
+                <div class="item__pricing">R${{ item.pricing }}</div>
             </div>
-        {% endfor %}
-    </div>
-    <div class = 'category__row__titles__4'>
-        {% for i in range (4) %}
-            <a href = '/{{ i+5 }}'>
-                <div class = 'category__title_3 gold'>
-                    {{ items[i+5]['title'] }}
-                </div>
-            </a>
-        {% endfor %}
-    </div>
-    <div class = 'category_list_pricing1'>
-        {% for i in range (4) %}
-            <div class = 'category_list_price_2'>
-                {{ items[i+5]['pricing'] }}
-            </div>
-        {% endfor %}
-    </div>
-    <div class = 'category-main-title__wrapper'>
-        <div class = 'category-main-title'>
-            <div class = 'category-main-title__lines'></div>
-            <div class = 'category-main-title__title'>@ SIGA-NOS TWITTER</div>
-            <div class = 'category-main-title__lines'></div>
-        </div>
-    </div>
-    <div class = 'siga_twitter'>
-        <a class='twitter-timeline' data-width='460' data-height='348' href='https://twitter.com/urbecafebar?ref_src=twsrc%5Etfw'>Tweets by urbecafebar</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>
-    </div>
-    <div class = 'category-main-title__wrapper'>
-        <div class = 'category-main-title'>
-            <div class = 'category-main-title__lines'></div>
-            <div class = 'category-main-title__title'>NOSSO BLOG</div>
-            <div class = 'category-main-title__lines'></div>
-        </div>
-    </div>
-    <div class = 'blogs'>
-        {% for newblog in new_blogs %}
-            <div class = 'blog'>
-                <div class = 'blog__title'>
-                    {{ newblog[0] }}
-                </div>
-                <div class = 'blog__content'>
-                    {{ newblog[1] }}
-                </div>
-                <div class = 'blog__author'>
-                    By <span>{{ newblog[2] }}</span>
-                </div>
             {% endfor %}
         </div>
+        <div class='category-main-title__wrapper'>
+            <div class='category-main-title'>
+                <div class='category-main-title__lines'></div>
+                <div class='category-main-title__title'>NOSSOS CHÁS</div>
+                <div class='category-main-title__lines'></div>
+            </div>
+        </div>
+        <div class='category-subtitle'>
+            Experimente nossos chás especiais
+        </div>
+        <div class='category-list-alt'>
+            {% set items_temp = [
+            {'title': 'Chai Do Urbe - 50g', 'pricing': '29,00'},
+            {'title': 'Chá Rooibos Limão E Especiarias - 25g', 'pricing': '25,00'},
+            {'title': 'Chá Preto Laranja E Camomila - 25g', 'pricing': '29,00'},
+            {'title': 'Chá Puro Mate (Orgânico) - 50g', 'pricing': '39,90'},
+            ] %}
+            {% for item in items_temp %}
+            <div class="item">
+                <img src='./static/images/compre{{ loop.index + 10 }}.png'>
+                <div class='item__buttons'>
+                    <div class='fav-item-button__wrapper'>
+                        <button class='fav-item-button'>
+                            <img src='./static/images/item_fav.png' class='fav-item-button__img'>
+                        </button>
+                    </div>
+                    <div class='cart-item-button__wrapper'>
+                        <button class='cart-item-button'>
+                            <img src='./static/images/item_cart.png' class='cart-item-button__img'>
+                        </button>
+                    </div>
+                </div>
+                <a href='/{{ loop.index - 1 }}'>
+                    <div class='category__title_3 gold'>
+                        {{ items_temp[loop.index - 1].title }}
+                    </div>
+                </a>
+                <div class="item__pricing">R${{ item.pricing }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class='category-main-title__wrapper'>
+            <div class='category-main-title'>
+                <div class='category-main-title__lines'></div>
+                <div class='category-main-title__title'>@ SIGA-NOS TWITTER</div>
+                <div class='category-main-title__lines'></div>
+            </div>
+        </div>
+        <div class='siga_twitter'>
+            <a class='twitter-timeline' data-width='460' data-height='348'
+               href='https://twitter.com/urbecafebar?ref_src=twsrc%5Etfw'>Tweets by urbecafebar</a>
+            <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>
+        </div>
+        <div class='category-main-title__wrapper'>
+            <div class='category-main-title'>
+                <div class='category-main-title__lines'></div>
+                <div class='category-main-title__title'>NOSSO BLOG</div>
+                <div class='category-main-title__lines'></div>
+            </div>
+        </div>
+        <div class='blogs'>
+            {% for newblog in new_blogs %}
+            <div class='blog'>
+                <div class='blog__title'>
+                    {{ newblog[0] }}
+                </div>
+                <div class='blog__content'>
+                    {{ newblog[1] }}
+                </div>
+                <div class='blog__author'>
+                    By <span>{{ newblog[2] }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
-</div>
-<script type = 'text/javascript' src = 'static/js/index.js'></script>
+<script type='text/javascript' src='static/js/index.js'></script>
 
 {% endblock %}
