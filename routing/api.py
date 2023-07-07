@@ -1,8 +1,7 @@
 from flask import Blueprint, jsonify
 from db_models import User, Blog
 
-api_pages = Blueprint('api', __name__,
-    template_folder='Templates', static_folder='static', url_prefix = '/api')
+api_pages = Blueprint('api', __name__, url_prefix = '/api')
 
 #so far just simple get operations, will refactor sometime in future
 @api_pages.route('/users')
