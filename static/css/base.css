@@ -122,6 +122,70 @@ body {
     color: #000;
 }
 
+.listing-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.row-h {
+    display: flex;
+    justify-content: center;
+}
+
+.row-v {
+    display: flex;
+    align-items: center;
+}
+
+.listing-item__content {
+    margin-inline: 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.item__buttons {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.fav-item-button__wrapper {
+    width: 4.5rem;
+    margin-right: 12px;
+}
+
+.fav-item-button__wrapper img {
+    height: 2.5rem;
+    width: 4.375rem;
+    opacity: 0.7;
+}
+
+.cart-item-button__wrapper img {
+    height: 2.5rem;
+    width: 4.375rem;
+}
+
+.fav-item-button {
+    width: 0.625rem;
+    opacity: 0.7;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.cart-item-button {
+    opacity: 0.7;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.category-title__lg {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-align: center;
+}
+
 .titlecafe {
     height: 160px;
     background-image: url(../images/capsulasdecafe7.jpg);
@@ -138,6 +202,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.listing-item__pricing {
+    margin-bottom: 4.5rem;
+    font-size: 14px;
+    text-align: center;
 }
 
 .searchbar__wrapper {
@@ -315,8 +385,16 @@ body {
   border: 2px solid #000;
 }
 
+.mr-4 {
+    margin-right: 4vw;
+}
+
 .u {
     text-transform: uppercase;
+}
+
+.font-18 {
+    font-size: 18px;
 }
 
 @media only screen and (max-width: 700px) {

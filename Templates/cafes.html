@@ -27,7 +27,7 @@
         <div class='listing-item__content'>
             {% for i in range (3) %}
             <div class="listing-item">
-                <div class='listing-item__img'>
+                <div class='row-h'>
                     <img src='static/images/compre{{ i + 6 }}.png'>
                 </div>
                 <div class='item__buttons'>
@@ -42,14 +42,14 @@
                 <a href='/{{ i }}'>
                     <div class='category-title__lg gold'>{{ items[i].title }}</div>
                 </a>
-                <div class='list-pricings__item'>{{ items[i].pricing }}</div>
+                <div class='listing-item__pricing'>{{ items[i].pricing }}</div>
             </div>
             {% endfor %}
         </div>
         <div class='listing-item__content'>
             {% for i in range (3) %}
             <div class="listing-item">
-                <div class='listing-item__img'>
+                <div class='row-h'>
                     {% set j = i + 9 if i != 2 else i + 13 %}
                     <img src='static/images/compre{{ j }}.png'>
                 </div>
@@ -66,14 +66,14 @@
                 <a href='/{{ j }}'>
                     <div class='category-title__lg gold'>{{ items[j].title }}</div>
                 </a>
-                <div class='list-pricings__item'>{{ items[j].pricing }}</div>
+                <div class='listing-item__pricing'>{{ items[j].pricing }}</div>
             </div>
             {% endfor %}
         </div>
         <div class='listing-item__content'>
             {% for i in range (3) %}
             <div class="listing-item">
-                <div class='listing-item__img'>
+                <div class='row-h'>
                     <img src='static/images/compre{{ i + 16 }}.png'>
                 </div>
                 <div class='item__buttons'>
@@ -88,14 +88,14 @@
                 <a href='/{{ i + 10 }}'>
                     <div class='category-title__lg gold'>{{ items[i + 10].title }}</div>
                 </a>
-                <div class='list-pricings__item'>{{ items[i + 10].pricing }}</div>
+                <div class='listing-item__pricing'>{{ items[i + 10].pricing }}</div>
             </div>
             {% endfor %}
         </div>
         <div class='row'>
             {% for i in range (2) %}
-            <div class="listing-item">
-                <div class='listing-item__img'>
+            <div class="listing-item {% if i == 0 %}mr-4{% endif %}">
+                <div class='row-h'>
                     <img src='static/images/compre{{ i + 19 }}.png'>
                 </div>
                 <div class='item__buttons'>
@@ -110,7 +110,7 @@
                 <a href='/{{ i + 13 }}'>
                     <div class='category-title__lg gold'>{{ items[i + 13].title }}</div>
                 </a>
-                <div class='list-pricings__item'>{{ items[i + 13].pricing }}</div>
+                <div class='listing-item__pricing'>{{ items[i + 13].pricing }}</div>
             </div>
             {% endfor %}
         </div>

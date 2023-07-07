@@ -80,7 +80,7 @@ body a {
     margin-inline: 12vw;
 }
 
-.item__pricing {
+.listing-item__pricing {
     font-size: 14px;
     color: #696969;
 }
@@ -140,7 +140,7 @@ body a {
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.list-pricings__item {
+.listing-item__pricing {
     width: 226px;
     margin-bottom: 72px;
 }
@@ -189,7 +189,7 @@ body a {
     cursor: pointer;
 }
 
-.item__buttons-alt {
+.row-h {
     width: 240px;
     margin-left: 42px;
     position: absolute;

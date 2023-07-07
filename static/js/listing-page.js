@@ -1,5 +1,5 @@
 const itemButtons = document.getElementsByClassName('item__buttons');
-const itemButtonsAlts = document.getElementsByClassName('item__buttons-alt');
+const itemButtonsAlts = document.getElementsByClassName('row-h');
 const headerFavCount = document.getElementById ('header-menu__fav-count');
 const headerCartCount = document.getElementById ('header-menu__cart-count');
 const categoryFields = Array.from(itemButtons).concat(Array.from(itemButtonsAlts));
