@@ -29,19 +29,6 @@ body a {
     margin-inline: 9px;
 }
 
-.category-list-alt {
-    margin: 7% 17%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.category-list-alt img {
-    height: 310px;
-    width: 283px;
-}
-
-
-
 .category-titles {
     text-align: center;
     margin-top: 40px;
@@ -78,7 +65,18 @@ body a {
     grid-template-columns: repeat(5, 1fr);
 }
 
-#items-list {
+.category-list-alt {
+    margin: 7% 17%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.category-list-alt-img {
+    height: 310px;
+    width: 283px;
+}
+
+#items-list-1 {
     margin-inline: 12vw;
 }
 

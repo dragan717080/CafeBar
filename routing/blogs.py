@@ -2,12 +2,14 @@ from flask import request, redirect, render_template, Blueprint
 from flask_login import current_user
 from datetime import datetime
 from db_models import Blog, db
+from utils import Utils
 
-blogs_pages = Blueprint('blogs', __name__,
-    template_folder='Templates', static_folder='static', url_prefix = '/')
+blogs_pages = Blueprint('blogs', __name__)
 
 @blogs_pages.route('/blogs', methods=['POST'])
 def blogs_post():
+    if 'title' not in request.form:
+        return Utils.post_with_searchbar()
     blog_title = request.form['title']
     blog_content = request.form['content']
     blog_author = current_user.username
@@ -43,6 +45,8 @@ def delete(id):
 
 @blogs_pages.route('/edit/<int:id>', methods = ['GET', 'POST'])
 def edit(id):
+    if 'title' not in request.form:
+        return Utils.post_with_searchbar()
     blog = Blog.query.get_or_404(id)
     if request.method == 'POST':
         blog.title = request.form['title']

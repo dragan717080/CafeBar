@@ -3,8 +3,7 @@ from flask_login import current_user
 from utils import Utils
 from items import items
 
-chas_pages = Blueprint('chas', __name__,
-    template_folder='Templates', static_folder='static', url_prefix = "/")
+chas_pages = Blueprint('chas', __name__)
 
 @chas_pages.route("/cha", methods = ["POST"])
 def chas_post():

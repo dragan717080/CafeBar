@@ -67,7 +67,7 @@ body {
     padding-right: 48px;
     display: flex;
     flex-grow: 1;
-    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 .header__buttons > * {
