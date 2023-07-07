@@ -1,36 +1,34 @@
 {% extends 'base.html' %}
 
 {% block head %}
-
-<link rel = 'stylesheet' href = 'static/css/item.css'>
 <script>
     var items = {{ items|tojson }}
 </script>
-
 {% endblock %}
 
 {% block body %}
 
-<div id='item'>
-    <div class = 'iteminfo'>{{ title }}</div>
-    <div class = 'itemsrow11'>
-        <img src = '{{ imagesource }}'>
-        <div class = 'item__buttons'>
-        {% for button in ['fav', 'cart'] %}
-        <div class='{{ button }}-item-button__wrapper'>
-            <button class='{{ button }}-item-button'>
-                <img src='./static/images/item_{{ button }}.png' class='{{ button }}-item-button__img'>
-            </button>
-        </div>
-        {% endfor %}
-        </div>
+<div class="row-h">
+    <div id='page-item'>
+    <div class = 'category-title__lg'>{{ title }}</div>
+    <div class='row-h'>
+        <img src='{{ imagesource }}'>
+    </div>
+    <div class = 'item__buttons'>
+    {% for button in ['fav', 'cart'] %}
+    <div class='{{ button }}-item-button__wrapper'>
+        <button class='{{ button }}-item-button'>
+            <img src='./static/images/item_{{ button }}.png' class='{{ button }}-item-button__img'>
+        </button>
+    </div>
+    {% endfor %}
     </div>
     <div class = 'list-pricings'>
         <div class = 'listing-item__pricing'>
             {{ pricing }}
         </div>
     </div>
-
+</div>
 </div>
 <script type = 'text/javascript' src = 'static/js/listing-page.js'></script>
 

@@ -59,41 +59,26 @@
             </div>
             {% endfor %}
         </div>
-        <div class = "teaitemsrow2">
-            {% for i in range(23, 25) %}
-                <div class = "teas__row__item">
-                    <img src = "static/images/compre{{ i }}.png">
-                    <div class = "row-h">
-                        <div class = "fav-item-button__wrapper">
-                            <button class = "fav-item-button">
-                            <img src = "./static/images/item_fav.png" class = "fav-item-button__img">
-                            </button>
-                        </div>
-                        <div class = "cart-item-button__wrapper">
-                            <button class = "cart-item-button">
-                                <img src = "./static/images/item_cart.png" class = "cart-item-button__img">
-                            </button>
-                        </div>
-                    </div>
+        <div class='row'>
+            {% for i in range (2) %}
+            <div class="listing-item {% if i == 0 %}mr-4{% endif %}">
+                <div class='row-h'>
+                    <img src='static/images/compre{{ i + 22 }}.png'>
                 </div>
-            {% endfor %}
-        </div>
-        <div class = "category__title2">
-            {% for i in range (17, 19) %}
-                <a href = "/{{ i }}">
-                    <div class = "row">
-                        <div class = "category__row__titles__5 gold mw-300">
-                            {{ items[i].title }}
-                        </div>
+                <div class='item__buttons'>
+                    {% for item in ['fav', 'cart'] %}
+                    <div class='{{ item }}-item-button__wrapper'>
+                        <button class='{{ item }}-item-button'>
+                            <img src='./static/images/item_{{ item }}.png' class='{{ item }}-item-button__img'>
+                        </button>
                     </div>
+                    {% endfor %}
+                </div>
+                <a href='/{{ i + 16 }}'>
+                    <div class='category-title__lg gold'>{{ items[i + 16].title }}</div>
                 </a>
-            {% endfor %}
-        </div>
-        <div class = "category_list_pricing2">
-            {% for i in range (17, 19) %}
-                <div class = "category_list_price_2">
-                    {{ items[i].pricing }}
-                </div>
+                <div class='listing-item__pricing'>{{ items[i + 16].pricing }}</div>
+            </div>
             {% endfor %}
         </div>
     </div>

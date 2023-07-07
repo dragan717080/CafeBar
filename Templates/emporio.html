@@ -13,8 +13,7 @@
 
 <div class='emporio__wrapper'>
     <div class='emporio'>
-        {% set len = items|length %}
-        {% for i in range(25, len, 3) %}
+        {% for i in range(25, items|length, 3) %}
         <div class='emporio__row'>
             {% for j in range(i, i+3) %}
             <div class='emporio__row__item'>
