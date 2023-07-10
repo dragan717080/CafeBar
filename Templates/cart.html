@@ -11,14 +11,14 @@
 
 {% block body %}
 
-<div id = 'cart'>
+<div id = 'cart' class="main-content">
     <form action = '/cart' method = 'POST' onsubmit = "validateCart()" >
         <div class = 'cart__row'></div>
         <div id = 'cart_total'>TOTAL: R$</div>
         {% if loggedinuser %}
-            <button class = 'cart-btn' name = 'submit' value = 'cart_submit'>BUY ALL!</button>
+        <button class = 'cart-btn' name = 'submit' value = 'cart_submit'>BUY ALL!</button>
         {% else %}
-            <div class = 'cartlogin'>You must be logged in to purchase</div>
+        <div class = 'cartlogin'>You must be logged in to purchase</div>
         {% endif %}
     </form>
 </div>

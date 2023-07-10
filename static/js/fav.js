@@ -10,8 +10,8 @@ Storage.prototype.getObj = function(key) {
 };
 
 const favItems = sessionStorage.getObj('favitems');
-if (favItems.length == 0) {
-  favElement.innerHTML = 'Looks like you have no favorited items yet. Make sure to check our <a href='/'>amazing coffees and teas</a>!';
+if (favItems.length === 0) {
+  favElement.innerHTML = "Looks like you have no favorited items yet. Make sure to check our <span><a href='/'>amazing coffees and teas</a></span>!";
 }
 
 const [titles, pricings, imageSources] = items.reduce(
@@ -24,10 +24,10 @@ const [titles, pricings, imageSources] = items.reduce(
   [[], [], []]
 );
 
-if (sessionStorage.getObj('favitems') == null) sessionStorage.setObj('favitems', []);
+if (sessionStorage.getObj('favitems') === null) sessionStorage.setObj('favitems', []);
 headerMenuFavCount.innerHTML = sessionStorage.getObj('favitems').length;
 
-if (sessionStorage.getObj('cartitems') == null) sessionStorage.setObj('cartitems', []);
+if (sessionStorage.getObj('cartitems') === null) sessionStorage.setObj('cartitems', []);
 headerMenuCartCount.innerHTML = sessionStorage.getObj('cartitems').length;
 
 for (let i = 0; i < favItems.length; i++) {

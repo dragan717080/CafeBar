@@ -63,18 +63,3 @@ function validateForm1() {
     searchbar3Content.value = listOfPricings[elementIndex];
     searchbar4Content.value = listOfImageSources[elementIndex];
 }
-
-function adjustFooterMenuMargin(className, offset) {
-  const footerMenu = document.getElementsByClassName('footer-menu')[0];
-  const numberElement = document.getElementsByClassName(className)[0];
-  const number = parseInt(numberElement.innerText);
-  footerMenu.style.marginTop = (offset - number * 117) + 'px';
-}
-
-if (window.location.href.includes('cart')) {
-  adjustFooterMenuMargin('header-menu__cart-count', 419);
-}
-
-if (window.location.href.includes('fav')) {
-  adjustFooterMenuMargin('header-menu__fav-count', 452);
-}

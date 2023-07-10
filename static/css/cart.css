@@ -1,7 +1,3 @@
-#cart {
-    min-height: 32rem;
-}
-
 .cart__row {
     width: 118.9375rem;
     min-width: 73.75rem;
@@ -59,10 +55,12 @@
     min-width: 73.75rem;
 }
 
+#cart_total span {
+    margin-left: 10px;
+}
+
 #cart_total a {
-    text-decoration: none;
     color: #b8784e;
-    margin-left: 0.4375rem;
 }
 
 .cart-btn {

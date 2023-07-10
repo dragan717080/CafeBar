@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <link rel='stylesheet' href='static/css/fav.css'>
-    <script>
-        var items = {{ items|tojson }}
-    </script>
+<link rel='stylesheet' href='static/css/fav.css'>
+<script>
+    var items = {{ items|tojson }}
+</script>
 {% endblock %}
 
 {% block body %}
-    <div class='favs'>
-        <div class='favs__row'></div>
-    </div>
-    <script src='static/js/fav.js'></script>
+<div class='favs main-content'>
+    <div class='favs__row'></div>
+</div>
+
+<script src='static/js/fav.js'></script>
 {% endblock %}

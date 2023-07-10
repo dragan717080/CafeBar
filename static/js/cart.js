@@ -17,7 +17,7 @@ const cartitems = sessionStorage.getObj('cartitems');
 if (cartitems.length === 0) {
   if (cartButton !== undefined)
     cartButton.style.display = 'none';
-  cartTotal.innerHTML = `Looks like you have no items in cart. Make sure to check our <a href='/'>amazing coffees and teas</a>!`;
+  cartTotal.innerHTML = `Looks like you have no items in cart. Make sure to check our <span><a href='/'>amazing coffees and teas</a></span>!`;
 }
 
 const [titles, pricings, imageSources] = items.reduce(

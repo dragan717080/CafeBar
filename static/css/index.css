@@ -108,16 +108,8 @@ body a {
     margin-right: 23%;
 }
 
-.category__row__titles__5 {
-    width: 226px;
+.item-title-alt {
     font-size: 15px;
-    font-weight: 500;
-}
-
-.category__title_3 {
-    width: 276px;
-    font-size: 15px;
-    font-weight: 500;
 }
 
 .list-pricings {
@@ -140,25 +132,20 @@ body a {
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.listing-item__pricing {
-    width: 226px;
-    margin-bottom: 72px;
-}
-
 .category_list_price_2 {
     width: 278px;
     margin-bottom: 72px;
 }
 
 .item__buttons {
-    margin: 14px 0;
+    margin: 14px 0 14px -17px;
     color: #fff;
     display: flex;
     justify-content: center;
 }
 
 .fav-item-button__wrapper {
-    width: 96px;
+    width: 96px !important;
 }
 
 .fav-item-button__wrapper img {

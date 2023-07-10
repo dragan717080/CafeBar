@@ -9,11 +9,6 @@
     margin-inline: 10px;
 }
 
-.favs__row a {
-    color: #0396fd;
-    text-decoration: none;
-}
-
 .fav-item__title {
     width: 200px;
     padding-top: 40px;
@@ -21,6 +16,15 @@
 
 .favs {
     margin-bottom: 4.625rem;
+}
+
+.favs span {
+    margin-inline: 0;
+}
+
+.favs a {
+    margin-left: 10px;
+    color: #b8784e;
 }
 
 .footer-menu {
@@ -36,22 +40,6 @@
 .fav__item__price {
     width: 100px;
     padding-top: 40px;
-}
-
-.fav_total {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-left: 10px;
-    width: 100vw;
-    min-width: 1180px;
-}
-
-.fav_total a {
-    text-decoration: none;
-    color: #b8784e;
-    margin-left: 0.4375rem;
 }
 
 .favbutton {
