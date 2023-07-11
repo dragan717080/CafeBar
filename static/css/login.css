@@ -1,33 +1,36 @@
-#register {
+#login {
     min-height: 62vh;
     padding-top: 5vh;
     background-color: #F3F4F6;
     justify-content: flex-start;
 }
 
-#register__board {
+#login__board {
     max-width: 28rem;
     padding: 1.875rem;
     background-color: #fff;
 }
 
 .input__wrapper input {
-    width: auto !important;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #have-account {
     margin: 6px 0;
 }
 
-#register__title {
+#login__title {
     padding: 14px 0 26px 0;
     font-size: 1.875rem;
     line-height: 2.25rem;
 }
 
+#login-additional {
+    margin-top: 14px;
+    line-height: 1.7;
+}
+
 a {
     color: #0EA5D9;
 }
-
-
-

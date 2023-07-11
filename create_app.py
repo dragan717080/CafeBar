@@ -17,6 +17,8 @@ def create_app():
     SESSION_TYPE = 'sqlalchemy'
     app.config.from_object(__name__)
 
+    app.url_map.strict_slashes = False
+
     cors = CORS(app)
     app.config['CORS_HEADERS'] = 'Content-Type'
 

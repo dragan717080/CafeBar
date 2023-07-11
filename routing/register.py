@@ -4,7 +4,7 @@ from items import admins
 from db_models import User
 from utils import Utils
 
-register_pages = Blueprint('register', __name__,)
+register_pages = Blueprint('register', __name__)
 
 @register_pages.route('/register', methods = ['POST'])
 def register_post():

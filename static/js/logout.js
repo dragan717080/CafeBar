@@ -1,7 +1,7 @@
 const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function redirectToHomePage() {
-  await wait(2000);
+  await wait(1000);
   window.location.href = '/';
 }
 

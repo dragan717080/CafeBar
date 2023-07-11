@@ -1,38 +1,53 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<link rel='stylesheet' href='static/css/register.css'>
+<link rel='stylesheet' href="{{ url_for('static', filename='css/register.css') }}">
 <script>
     var allUsers = {{ all_users|tojson }}
 </script>
 {% endblock %}
 
 {% block body %}
-<div id='register'>
-    <div id='register__header'></div>
-    <div id='register__board'>
-        <div id="title">Sign up</div>
-        <form action='/register' method='POST' onsubmit='return validateRegister(event)'>
+<div id='register' class="row-v main-content">
+    <img class='mx-auto' height='48px' width = '78px' src="{{ url_for('static', filename = '/images/logo-alt.png') }}" alt="logo">
+    <div id="register__title" class="tracking-tight mx-auto">
+        Register
+    </div>
+    <div id='register__board' class="mx-auto">
+        <form action='/register' method='POST' onsubmit='return validateRegistration(event)'>
             <div class='input__wrapper'>
-                <img src="{{ url_for('static', filename = '/assets/icons/email.jpg') }}">
+                <img src="{{ url_for('static', filename = '/images/icons/email.jpg') }}">
                 <input id='email' type='text' name='email' placeholder='Email'>
             </div>
             <div class='input__wrapper'>
-                <img src="{{ url_for('static', filename = '/assets/icons/login.jpg') }}">
+                <img src="{{ url_for('static', filename = '/images/icons/login.jpg') }}">
                 <input id='username' type='text' name='username' placeholder='Username'>
             </div>
             <div class='input__wrapper'>
-                <img src="{{ url_for('static', filename = '/assets/icons/password.jpg') }}">
+                <img src="{{ url_for('static', filename = '/images/icons/password.jpg') }}">
                 <input id='password1' type='password' name='password' placeholder='Password'>
             </div>
             <div class='input__wrapper'>
-                <img src="{{ url_for('static', filename = '/assets/icons/password.jpg') }}">
+                <img src="{{ url_for('static', filename = '/images/icons/password.jpg') }}">
                 <input id='password2' type='password' placeholder='Confirm password'>
             </div>
+            {% set errors = {
+            'email': "Email doesn't exist",
+            'username': 'Username is too short',
+            'password': 'Password is too short',
+            'password-matching': "Passwords don't match",
+            'unique-username': 'Username already exists',
+            'unique-email': 'Email already exists'
+            } %}
+            {% for k, v in errors.items() %}
+            <div class='handlepotentialerrors' id='{{ k }}-error'>
+                {{ v }}
+            </div>
+            {% endfor %}
             <div class="row">
                 <div>
                     <div id='have-account'>
-                        Already have an account? <a href='/login'>Log in</a>
+                        Already have an account? <a href='login'>Log in</a>
                     </div>
                     <div class="row">
                         <input type='submit' class='submit-btn' name='submit' value='Submit'>
@@ -42,5 +57,5 @@
         </form>
     </div>
 </div>
-<script type='text/javascript' src='static/js/register.js'></script>
+<script type='text/javascript' src="{{ url_for('static', filename='js/register.js') }}"></script>
 {% endblock %}

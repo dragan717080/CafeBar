@@ -2,8 +2,7 @@ from flask import render_template, Blueprint
 from flask_login import login_required, logout_user, current_user
 from items import items
 
-logout_pages = Blueprint('logout', __name__,
-    template_folder='Templates', static_folder='static', url_prefix = '/')
+logout_pages = Blueprint('logout', __name__)
 
 @logout_pages.route('/logout')
 @login_required

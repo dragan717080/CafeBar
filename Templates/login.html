@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/login.css') }}"/>
+<title>Login</title>
+<script>
+    var allUsers = {{ all_users|tojson }}
+    {% if passwords_not_matching %}
+    console.log('asd');
+    var passwordsNotMatching = {{ passwords_not_matching|tojson }}
+    {% endif %}
+</script>
+{% endblock %}
+
+{% block body %}
+<div id='login' class="row-v main-content">
+    <img class='mx-auto' height='48px' width='78px' src="{{ url_for('static', filename = '/images/logo-alt.png') }}"
+         alt="logo">
+    <div id="login__title" class="tracking-tight mx-auto">
+        Login
+    </div>
+    <div id='login__board' class="mx-auto">
+        <form action='/login' method='POST' onsubmit='return validateLogin(event)'>
+            <div class='input__wrapper'>
+                <img src="{{ url_for('static', filename = 'images/icons/login.jpg') }}">
+                <input id="username" type='text' name='username' placeholder='Username'>
+            </div>
+            <div class='input__wrapper'>
+                <img src="{{ url_for('static', filename = 'images/icons/password.jpg') }}">
+                <input id='password' type='password' name='password' placeholder='Password'>
+            </div>
+            <div class='handlepotentialerrors'>
+                {% if passwords_not_matching %}
+                1
+                Password didn't match
+                {% endif %}
+            </div>
+            <input class='submit-btn changetodoonhover' type='submit' value='LOGIN' name='submit'>
+        </form>
+        {% set errors = {
+        'username': 'Username is too short',
+        'password': 'Password is too short',
+        'non-existing-username': "Username doesn't exist",
+        'passwords-matching': "Passwords don't match"
+        } %}
+        {% for k, v in errors.items() %}
+        <div class='handlepotentialerrors' id='{{ k }}-error'>
+            {{ v }}
+        </div>
+        {% endfor %}
+        <div id='login-additional' class='t-center'>
+            <div class='recovery'>
+                Forgot your password?
+            </div>
+            <div class='login-link'>
+                <a href='/register'>Register</a>
+            </div>
+            <div class='conditions'>
+                Terms and Conditions
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src="{{ url_for('static', filename='js/login.js') }}"></script>
+{% endblock %}

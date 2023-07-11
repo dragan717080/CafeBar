@@ -7,7 +7,7 @@
     {% endblock %}
     <meta charset='UTF-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel='stylesheet' href='./static/css/base.css'>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/base.css') }}" />
     <link rel='logoicon.ico' sizes='76x76' href="{{ url_for('static', filename='/images/logoicon.ico') }}">
     <link rel='shortcut icon' href="{{ url_for('static', filename='/images/logoicon.ico') }}" type='image/x-icon'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -69,14 +69,14 @@
 <div id='title-cafe'>
     SEU CAFÉ COM ORIGEM
 </div>
-<div class='searchbar__wrapper'>
+<div id='searchbar__wrapper'>
     <form method='POST' onsubmit='return validateForm1()'>
         <input onkeyup='searchbar()' class='searchbar_content' name='searchbar_content'>
         <input type='hidden' class='searchbar_2_content' name='searchbar_2_content'>
         <input type='hidden' class='searchbar_3_content' name='searchbar_3_content'>
         <input type='hidden' class='searchbar_4_content' name='searchbar_4_content'>
         <button type='submit' class='searchbar__button' value='submit' name='submit'>
-            <img src='./static/images/cafe_search_enlarger.png'>
+            <img src="{{ url_for('static', filename='images/cafe_search_enlarger.png') }}">
         </button>
     </form>
 </div>
@@ -103,6 +103,6 @@
 
 </div>
 
-<script type='text/javascript' src='./static/js/base.js'></script>
+<script type='text/javascript' src="{{ url_for('static', filename='js/base.js') }}"></script>
 </body>
 </html>

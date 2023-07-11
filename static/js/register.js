@@ -8,6 +8,9 @@ const handleShortPassword = document.getElementById('password-error');
 const handlePassNoMatch = document.getElementById('password-matching-error');
 const handleNonUniqueUsername = document.getElementById('unique-username-error');
 const handleNonUniqueEmail = document.getElementById('unique-email-error');
+const searchbarWrapper = document.getElementById('searchbar__wrapper');
+
+searchbarWrapper.style.backgroundColor = '#F3F4F6';
 
 const { allUsernames, allEmails } = allUsers.reduce((acc, { username, email }) => {
   acc.allUsernames.push(username);
