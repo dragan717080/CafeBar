@@ -16,8 +16,6 @@ def login_post():
     passwords_match = existing_user.password == password
     if existing_user:
         if not passwords_match:
-            print(1)
-            print(User.find(username=username).password)
             user = User.find(username=username)
             user.password='asdasdasd'
             user.save()

@@ -1,7 +1,8 @@
-from flask import request, redirect, session
+from flask import request, redirect, session, Blueprint
 import json
 import glob
 import importlib.util
+import os
 
 class Utils(object):
 
@@ -40,16 +41,23 @@ class Utils(object):
     @staticmethod
     # Import variables ending with '_pages from files
     def get_blueprints(folder_path='routing/'):
-        file_paths = glob.glob(folder_path + '*.py')
-
         blueprints = []
-        for file_path in file_paths:
-            file_name = file_path[:-3].split('/')[-1]  # Extract the file name without the '.py' extension
-            module_name = file_name.replace('.', '_')  # Convert the file name to a valid module name
-            spec = importlib.util.spec_from_file_location(module_name, file_path)
-            module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(module)
 
-            # Filter and retrieve variables that end with '_pages'
-            blueprints.append([getattr(module, var) for var in dir(module) if var.endswith('_pages')][0])
+        for root, dirs, files in os.walk(folder_path):
+            for file_name in files:
+                if file_name.endswith('.py'):
+                    file_path = os.path.join(root, file_name)
+
+                    module_name = os.path.splitext(file_path)[0].replace('/', '.')
+                    spec = importlib.util.spec_from_file_location(module_name, file_path)
+                    module = importlib.util.module_from_spec(spec)
+                    spec.loader.exec_module(module)
+
+                    # Filter and retrieve variables that are blueprints
+                    for var in dir(module):
+                        obj = getattr(module, var)
+                        if isinstance(obj, Blueprint):
+                            setattr(module, var.split('_pages')[0], obj)
+                            blueprints.append(obj)
+
         return blueprints

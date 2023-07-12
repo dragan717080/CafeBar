@@ -6,11 +6,11 @@ class BaseModel(db.Model):
     __abstract__ = True
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, default = datetime.utcnow)
-    excluded_keys = ['_sa_instance_state', 'id']
+    excluded_keys = ['_sa_instance_state']
 
-    @staticmethod
-    def remove_excluded_keys(item):
-        return {var: value for var, value in vars(item).items() if var not in BaseModel.excluded_keys}
+    @classmethod
+    def remove_excluded_keys(cls, item):
+        return {var: value for var, value in vars(item).items() if var not in cls.excluded_keys}
 
     @classmethod
     def find_all(cls):
@@ -33,6 +33,11 @@ class BaseModel(db.Model):
     def delete_one(cls, **kwargs):
         cls.query.filter_by(**kwargs).delete()
         db.session.commit()
+
+    # REST API response
+    @classmethod
+    def get_latest(cls):
+        return cls.remove_excluded_keys(cls.query.order_by(User.created_at.desc()).first())
 
     def __repr__(self):
         return f'{self.__class__.__name__} {self.id}'

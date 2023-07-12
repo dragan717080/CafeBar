@@ -36,7 +36,6 @@ def index_post():
 def index():
     new_blogs = [[blog.title.capitalize(), blog.content.capitalize(), blog.author] for blog in
         Blog.query.all()[:3]]
-    print(User.find(username='bearbot').password)
 
     if current_user.is_anonymous:
         return render_template('index.html', new_blogs=new_blogs, items=items)
